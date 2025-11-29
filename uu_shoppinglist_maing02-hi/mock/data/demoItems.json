@@ -1,0 +1,11 @@
+[
+  { "id": 1, "name": "Milk", "toBuy": true, "listID": "1" },
+  { "id": 2, "name": "Eggs", "toBuy": true, "listID": "1"  },
+  { "id": 3, "name": "Bananas", "toBuy": true, "listID": "2"  },
+  { "id": 4, "name": "Chicken Breast", "toBuy": true, "listID": "2"  },
+  { "id": 5, "name": "Pasta", "toBuy": true, "listID": "3"  },
+  { "id": 6, "name": "Tomatoes", "toBuy": true, "listID": "3"  },
+  { "id": 7, "name": "Olive Oil", "toBuy": false, "listID": "4"  },
+  { "id": 8, "name": "Bread", "toBuy": true, "listID": "4"  }
+]
+
