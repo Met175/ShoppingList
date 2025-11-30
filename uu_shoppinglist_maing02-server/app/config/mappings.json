@@ -30,6 +30,71 @@
         "realization": "api-console.html",
         "httpMethod": "GET",
         "type": "UVE"
+      },
+      "shoppingList/create": {
+        "realization": "api/controllers/ShoppingListController.create",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "shoppingList/update": {
+        "realization": "api/controllers/ShoppingListController.update",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "shoppingList/delete": {
+        "realization": "api/controllers/ShoppingListController.delete",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "shoppingList/list": {
+        "realization": "api/controllers/ShoppingListController.list",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "shoppingList/get": {
+        "realization": "api/controllers/ShoppingListController.get",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "shoppingList/addMember": {
+        "realization": "api/controllers/ShoppingListController.addMember",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "shoppingList/removeMember": {
+        "realization": "api/controllers/ShoppingListController.removeMember",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "shoppingList/listMember": {
+        "realization": "api/controllers/ShoppingListController.listMember",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "shoppingListItem/create": {
+        "realization": "api/controllers/ShoppingListItemController.create",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "shoppingListItem/update": {
+        "realization": "api/controllers/ShoppingListItemController.update",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "shoppingListItem/delete": {
+        "realization": "api/controllers/ShoppingListItemController.delete",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "shoppingListItem/list": {
+        "realization": "api/controllers/ShoppingListItemController.list",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "shoppingListItem/get": {
+        "realization": "api/controllers/ShoppingListItemController.get",
+        "httpMethod": "GET",
+        "type": "CMD"
       }
     }
   }

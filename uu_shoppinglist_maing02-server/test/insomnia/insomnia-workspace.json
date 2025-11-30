@@ -3,7 +3,8 @@
   "__export_format": 4,
   "__export_date": "2022-10-06T07:37:04.822Z",
   "__export_source": "insomnia.desktop.app:v2020.2.2",
-  "resources": [{
+  "resources": [
+    {
     "_id": "req_9a8921c1bcea4ecc98ec6d2daeb453f1_1592560665_1594385840_1764458516",
     "authentication": {
       "token": "{{ token  }}",

@@ -1,34 +1,85 @@
 {
   "{asid}": {
-    "profileList": ["AsidAuthorities", "AsidExecutives", "AsidLicenseOwner", "Public"],
-    "useCaseMap": {
-    }
+    "profileList": ["AsidAuthorities","AsidExecutives","AsidLicenseOwner","Public"],
+    "useCaseMap": {}
   },
   "*": {
-    "profileList": ["Authorities", "Executives", "AwidLicenseOwner", "Public", "Authenticated", "AwidInitiator"],
+    "profileList": ["Authorities","Executives","AwidLicenseOwner","Public","Authenticated","AwidInitiator"],
     "useCaseMap": {
       "sys/uuAppWorkspace/init": {
-        "sysStateList": ["created", "assigned"],
-        "profileList": ["AwidLicenseOwner", "AwidInitiator"]
+        "sysStateList": ["created","assigned"],
+        "profileList": ["AwidLicenseOwner","AwidInitiator"]
       },
       "sys/uuAppWorkspace/load": {
-        "sysStateList": ["created", "assigned", "active", "restricted", "readOnly", "closed", "suspended"],
+        "sysStateList": ["created","assigned","active","restricted","readOnly","closed","suspended"],
         "profileList": ["Authenticated"]
       },
       "sys/uuAppWorkspace/loadBasicData": {
-        "sysStateList": ["created", "assigned", "active", "restricted", "readOnly", "closed", "suspended"],
+        "sysStateList": ["created","assigned","active","restricted","readOnly","closed","suspended"],
         "profileList": ["Public"]
       },
       "defaultUve": {
         "profileList": ["Public"]
       },
       "sys/uuAppWorkspace/initUve": {
-        "sysStateList": ["created", "assigned"],
-        "profileList": ["Public", "AwidLicenseOwner", "AwidInitiator"]
+        "sysStateList": ["created","assigned"],
+        "profileList": ["Public","AwidLicenseOwner","AwidInitiator"]
       },
       "sys/uuAppWorkspace/apiConsole": {
-        "sysStateList": ["created", "assigned", "active", "restricted", "readOnly", "closed", "suspended"],
+        "sysStateList": ["created","assigned","active","restricted","readOnly","closed","suspended"],
         "profileList": ["Authenticated"]
+      },
+      "shoppingList/create": {
+        "sysStateList": ["active"],
+        "profileList": ["Executive"]
+      },
+      "shoppingList/update": {
+        "sysStateList": ["active"],
+        "profileList": ["Executive"]
+      },
+      "shoppingList/delete": {
+        "sysStateList": ["active"],
+        "profileList": ["Executives"]
+      },
+      "shoppingList/list": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities", "Executive"]
+      },
+      "shoppingList/get": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities", "Executive"]
+      },
+      "shoppingList/addMember": {
+        "sysStateList": ["active"],
+        "profileList": ["Executive"]
+      },
+      "shoppingList/removeMember": {
+        "sysStateList": ["active"],
+        "profileList": ["Executive"]
+      },
+      "shoppingList/listMember": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities", "Executive"]
+      },
+      "shoppingListItem/create": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities", "Executive"]
+      },
+      "shoppingListItem/update": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities", "Executive"]
+      },
+      "shoppingListItem/delete": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities", "Executive"]
+      },
+      "shoppingListItem/list": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities", "Executive"]
+      },
+      "shoppingListItem/get": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities", "Executive"]
       }
     }
   }
