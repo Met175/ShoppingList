@@ -34,33 +34,51 @@ const ShoppingListList = createVisualComponent({
   defaultProps: {},
   //@@viewOff:defaultProps
 
-  render({ shoppingLists, setShoppingLists, user, filterLists }) {
-    console.log("ShoppingListList render", shoppingLists);
+  render({ dataList, user, filterLists }) {
+    console.log("ShoppingListList render", dataList);
+    const { data, state, errorData } = dataList;
+    if (state === "pending" || state === "pendingNoData") {
+      return <div>Loading shopping lists...</div>;
+    }
 
-    const filteredData = shoppingLists.filter((list) => {
-      // filtr podle active/archived
-      if (filterLists === "active" && !list.active) return false;
-      if (filterLists === "archived" && list.active) return false;
+    if (state === "error") {
+      return <div>Error loading shopping lists</div>;
+    }
+    const shoppingLists = data ?? [];
+    console.log("shoppingLists:", shoppingLists);
+    const filteredData = shoppingLists
+      .map((list) => list.data)
+      .filter((list) => {
+        // filter active/archived
+        if (filterLists === "active" && !list.active) return false;
+        if (filterLists === "archived" && list.active) return false;
 
-      // filtr podle uživatele
-      if (list.owner === user.name) return true;
-      if (list.members && list.members.includes(user.name)) return true;
+        // filter by user
+        if (list.owner === user.name) return true;
+        if (list.members && list.members.includes(user.name)) return true;
 
-      return false;
-    });
-    console.log(user.name)
-    console.log(shoppingLists.owner)
+        return false;
+      });
+    console.log("filteredData:", filteredData);
+    console.log(user.name);
+    console.log(shoppingLists.owner);
+    const handleArchive = async (shoppingListId) => {
+      try {
+        const listToUpdate = dataList.data.find((list) => list.data.id === shoppingListId);
+        if (!listToUpdate) {
+          console.log("id not found:", shoppingListId);
+          return;
+        }
 
-    const handleArchive = (shoppingListId) => {
-      setShoppingLists(
-        shoppingLists.map((shoppingList) =>
-          shoppingList.id === shoppingListId
-            ? { ...shoppingList, active: !shoppingList.active }
-            : shoppingList
-        )
-      );
+        const updatedList = { ...listToUpdate.data, active: !listToUpdate.data.active };
+
+        await dataList.handlerMap.update(updatedList);
+
+        // Optional: refresh the list
+      } catch (error) {
+        console.error("Failed to archive/unarchive shopping list:", error);
+      }
     };
-
     //@@viewOn:private
 
     //@@viewOff:private
@@ -70,7 +88,7 @@ const ShoppingListList = createVisualComponent({
       <div>
         <Uu5Tiles.ControllerProvider data={filteredData}>
           <Uu5TilesElements.Grid tileMinWidth={100} tileMaxWidth={600}>
-            {( tile ) => <ShoppingListTile shoppingLists = {shoppingLists} shoppingList={tile.data} handleArchive={handleArchive} setShoppingLists={setShoppingLists} user={user}/>}
+            {(tile) => <ShoppingListTile shoppingList={tile.data} user={user} handleArchive={handleArchive} />}
           </Uu5TilesElements.Grid>
         </Uu5Tiles.ControllerProvider>
       </div>
@@ -84,4 +102,3 @@ const ShoppingListList = createVisualComponent({
 export { ShoppingListList };
 export default ShoppingListList;
 //@@viewOff:exports
-

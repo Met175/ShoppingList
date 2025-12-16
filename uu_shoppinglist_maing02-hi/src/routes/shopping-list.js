@@ -12,6 +12,7 @@ import demoItems from "../../mock/data/demoItems.json";
 import demoMembers from "../../mock/data/demoMembers.json";
 import demoLists from "../../mock/data/demoLists.json";
 import { useUser } from "../core/user.js";
+import ShoppingListProvider from "../core/shopping-list-provider.js";
 import importLsi from "../lsi/import-lsi.js";
 //@@viewOff:imports
 
@@ -59,32 +60,40 @@ let ShoppingList = createVisualComponent({
     const [filterLists, setFilterLists] = useState("active");
     const user = useUser();
 
-
     //@@viewOff:private
 
     //@@viewOn:render
     const attrs = Utils.VisualComponent.getAttrs(props);
     return (
-      <div {...attrs}>
-        <RouteBar shoppingLists={shoppingLists} setShoppingLists={setShoppingLists} user={user} setFilterLists={setFilterLists}/>
-        <Uu5Elements.GridTemplate
-          contentMap={{
-            content: <ShoppingListList shoppingLists={shoppingLists} setShoppingLists={setShoppingLists} filterLists={filterLists} user={user} />
-          }}
-          templateAreas={{
-            xs: `header, content, footer`,
-            m: `
+      <ShoppingListProvider>
+        {({ dataList }) => (
+          <div {...attrs}>
+            <RouteBar
+              shoppingLists={shoppingLists}
+              setShoppingLists={setShoppingLists}
+              user={user}
+              setFilterLists={setFilterLists}
+            />
+            <Uu5Elements.GridTemplate
+              contentMap={{
+                content: <ShoppingListList dataList={dataList} filterLists={filterLists} user={user} />,
+              }}
+              templateAreas={{
+                xs: `header, content, footer`,
+                m: `
         header header header header,
         content content content content,
         footer footer footer footer
       `,
-          }}
-          templateColumns={{ xs: "100%", m: "repeat(4, 1fr)" }}
-          rowGap={12}
-          columnGap={20}
-          className={Css.layout()}
-        />
-      </div>
+              }}
+              templateColumns={{ xs: "100%", m: "repeat(4, 1fr)" }}
+              rowGap={12}
+              columnGap={20}
+              className={Css.layout()}
+            />
+          </div>
+        )}
+      </ShoppingListProvider>
     );
     //@@viewOff:render
   },

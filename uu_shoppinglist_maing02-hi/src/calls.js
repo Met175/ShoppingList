@@ -17,6 +17,61 @@ const Calls = {
   //   const commandUri = Calls.getCommandUri("loadDemoContent");
   //   return Calls.call("cmdGet", commandUri, dtoIn);
   // },
+shoppingListList(dtoIn) {
+    console.log("CALLED")
+    const commandUri = Calls.getCommandUri("shoppingList/list");
+    const dtoOut = Calls.call("cmdGet", commandUri, dtoIn);
+    console.log("shoppingListList called", dtoOut);
+    return dtoOut;
+  },
+
+  shoppingListCreate(dtoIn) {
+    const commandUri = Calls.getCommandUri("shoppingList/create");
+    return Calls.call("cmdPost", commandUri, dtoIn);
+  },
+
+  shoppingListDelete(dtoIn) {
+    const commandUri = Calls.getCommandUri("shoppingList/delete");
+    return Calls.call("cmdPost", commandUri, dtoIn);
+  },
+
+  shoppingListUpdate(dtoIn) {
+    const commandUri = Calls.getCommandUri("shoppingList/update");
+    return Calls.call("cmdPost", commandUri, dtoIn);
+  },
+  /*
+  addMember(dtoIn) {
+    const commandUri = Calls.getCommandUri("shoppingList/addMember");
+    return Calls.call("cmdPost", commandUri, dtoIn);
+  },
+  deleteMember(dtoIn) {
+    const commandUri = Calls.getCommandUri("shoppingList/deleteMember");
+    return Calls.call("cmdPost", commandUri, dtoIn);
+  },
+  listMembers(dtoIn) {
+    const commandUri = Calls.getCommandUri("shoppingList/listMembers");
+    return Calls.call("cmdGet", commandUri, dtoIn);
+  },
+  */
+  itemList(dtoIn) {
+    const commandUri = Calls.getCommandUri("item/list");
+    return Calls.call("cmdGet", commandUri, dtoIn);
+  },
+
+  itemCreate(dtoIn) {
+    const commandUri = Calls.getCommandUri("item/create");
+    return Calls.call("cmdPost", commandUri, dtoIn);
+  },
+
+  itemDelete(dtoIn) {
+    const commandUri = Calls.getCommandUri("item/delete");
+    return Calls.call("cmdPost", commandUri, dtoIn);
+  },
+
+  itemUpdate(dtoIn) {
+    const commandUri = Calls.getCommandUri("item/update");
+    return Calls.call("cmdPost", commandUri, dtoIn);
+  },
 
   loadIdentityProfiles() {
     const commandUri = Calls.getCommandUri("sys/uuAppWorkspace/initUve");
