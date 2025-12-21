@@ -1,0 +1,3348 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: uuShoppinglistMaing02
+meta:
+  id: wrk_d611eb2666ac4d5294a2e2998e765afc
+  created: 1766256276565
+  modified: 1766256276565
+  description: ""
+collection:
+  - url: "{{ _.oidc }}/grantToken"
+    name: grandToken
+    meta:
+      id: req_a0535b1b604b40f8a7256bf3a3a0f7bf
+      created: 1766256302774
+      modified: 1766257306408
+      isPrivate: false
+      description: ""
+      sortKey: -1766256302774
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"grant_type": "password",
+        	"username": "{{ _.accessCode1 }}",
+        	"password": "{{ _.accessCode2 }}",
+        	"scope": "openid http"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.2.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - name: Monitoring
+    meta:
+      id: fld_6c18e7a9039a4d058e2d43144b254f1d
+      created: 1549535903197
+      modified: 1549535903197
+      sortKey: -1549535903197
+      description: ""
+    children:
+      - url: "{{ host  }}/{{ contextPath  }}/{{ asid  }}/sys/getHealth"
+        name: sys/getHealth
+        meta:
+          id: req_1abe874d5f1a4b5487b8e8e13a809cc4
+          created: 1549536025167
+          modified: 1594390734945
+          isPrivate: false
+          description: |
+            #### uuCmd documentation
+            https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=14666903
+          sortKey: -1549536151208
+        method: GET
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{ asid  }}/sys/getStatistics"
+        name: sys/getStatistics
+        meta:
+          id: req_1473f6ede3014c0981e9cdec0c2ff31a
+          created: 1549536058108
+          modified: 1594390745783
+          isPrivate: false
+          description: |
+            #### uuCmd documentation
+            https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=11668398
+          sortKey: -1549536151183
+        method: GET
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+          prefix: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{ asid  }}/sys/getConfiguration"
+        name: sys/getConfiguration
+        meta:
+          id: req_942ae7024ada4c05bd0562f3b0c38135
+          created: 1549536068188
+          modified: 1594390755698
+          isPrivate: false
+          description: |
+            #### uuCmd documentation
+            https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=74355319
+          sortKey: -1549536151170.5
+        method: GET
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+          prefix: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{ asid  }}/sys/getEnvironment"
+        name: sys/getEnvironment
+        meta:
+          id: req_52f16d52617946c1af8b6651944bd936
+          created: 1549536132305
+          modified: 1594390765516
+          isPrivate: false
+          description: |
+            #### uuCmd documentation
+            https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=03020370
+          sortKey: -1549536151164.25
+        method: GET
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+          prefix: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{ asid  }}/sys/resetStatistics"
+        name: sys/resetStatistics
+        meta:
+          id: req_5f3ddcfe18954120a610ca3ea05d30d8
+          created: 1549536143342
+          modified: 1594390774621
+          isPrivate: false
+          description: |
+            #### uuCmd documentation
+            https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=58965521
+          sortKey: -1549536151161.125
+        method: POST
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{ asid  }}/sys/getUseCases"
+        name: sys/getUseCases
+        meta:
+          id: req_59f00f7aa6d545ffa36694e7a21fd6da
+          created: 1549536151158
+          modified: 1594390783787
+          isPrivate: false
+          description: |
+            #### uuCmd documentation
+            https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=15527494
+          sortKey: -1549536151158
+        method: GET
+        body:
+          mimeType: application/json
+          text: "{}"
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: uuBinaryStore
+    meta:
+      id: fld_9fbd226a9e1046f5948de629d77a0d22
+      created: 1549871664117
+      modified: 1549874553835
+      sortKey: -1549535903134.5
+      description: ""
+    children:
+      - url: "{{ host  }}/{{ contextPath  }}/{{
+          awid  }}/uu-app-binarystore/createBinary"
+        name: uu-app-binarystore/createBinary
+        meta:
+          id: req_863ef7811c1c4d8f9b9a9c632c22799f
+          created: 1549871701160
+          modified: 1554802563164
+          isPrivate: false
+          description: |-
+            #### uuCmd documentation
+            https://uuapp.plus4u.net/uu-bookkit-maing01/34df77ebe0a04adda6dcd62d32c4f513/book/page?code=createBinary_00
+
+            #### Input
+            ```javascript
+            {
+              code: "...", //externally specified or generated code (3-64 charecters)
+              name: "...", //user name of binary; It is uu5String limited to 255 characters
+              description: "...", //user description of binary; It is uu5String limited to 4000 characters
+              versionName: "...", //user name of binary version; It is uu5String limited to 255 characters
+              filename: "..." //name of the uploaded file; 
+                              //if not set it is obtained from http header or the default value "defaultName" is used
+              contentType: "...", //content type of the uploaded file;
+                                  //if not set it is obtained from http header or the default value "application/octet-stream" is used
+              data: ... //binary data; required
+            };
+            ```
+            #### Validation schema
+            ```javascript
+            shape({
+              code: code(),
+              name: uu5String(255),
+              description: uu5String(4000),
+              versionName: uu5String(255),
+              filename: string(255), 
+              contentType: string(256),
+              data: binary().isRequired()
+            })
+            ```
+            #### Output
+            ```javascript
+            {
+              id: "...", //generated unique code
+              awid: "...", //app module id - unique code specified externally
+              sys: {},
+              name: "...", //user name of binary; It is uu5String limited to 255 characters
+              code: "...", //identifier of the binary (all versions of binary have same code)
+              description: "...", //user description of binary
+              versionName: "...", //user name of binary version
+              filename: "..." //name of the uploaded file
+              contentType: "...", //content type of the uploaded file
+              uuAppErrorMap: {} //uuApp standard errorMap
+            };
+            ```
+          sortKey: -1549535903047
+        method: POST
+        body:
+          mimeType: multipart/form-data
+          params:
+            - name: code
+              value: ""
+              disabled: false
+            - name: name
+              value: ""
+              disabled: false
+            - name: description
+              value: ""
+              disabled: true
+            - name: versionName
+              value: ""
+              disabled: true
+            - name: filename
+              value: ""
+              disabled: true
+              multiline: false
+              type: text
+            - name: contentType
+              value: ""
+              disabled: true
+              multiline: false
+              type: text
+            - name: data
+              value: ""
+              type: file
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{
+          awid  }}/uu-app-binarystore/getBinaryData"
+        name: uu-app-binarystore/getBinaryData
+        meta:
+          id: req_bbf3decd64ca49ecb621f473ce7e1d34
+          created: 1549873558452
+          modified: 1554802961333
+          isPrivate: false
+          description: |-
+            #### uuCmd documentation
+            https://uuapp.plus4u.net/uu-bookkit-maing01/34df77ebe0a04adda6dcd62d32c4f513/book/page?code=getBinaryData_00
+
+            #### Input
+            ```javascript
+            { 
+              code: "...", //identifier of the binary (all versions of binary have same code)
+              contentDisposition: "..." //style of returned binary data; possible values: ["inline", "attachment"]; default value "attachment"  
+            };
+            ```
+            #### Validation schema
+            ```javascript
+            shape({
+              code: code().isRequired(),
+              contentDisposition: oneOf(["inline","attachment"])
+            })
+            ```
+            #### Output
+             Returns a binary data stream. 
+          sortKey: -1547374969302.5
+        method: GET
+        body:
+          mimeType: application/json
+          text: |-
+            { 
+              "code": "...", 
+              "contentDisposition": "..."
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{
+          awid  }}/uu-app-binarystore/updateBinaryData"
+        name: uu-app-binarystore/updateBinaryData
+        meta:
+          id: req_ff29d5a857ee446e97afe95f844e29c4
+          created: 1549873633782
+          modified: 1554803021358
+          isPrivate: false
+          description: |-
+            #### uuCmd documentation
+            https://uuapp.plus4u.net/uu-bookkit-maing01/34df77ebe0a04adda6dcd62d32c4f513/book/page?code=updateBinaryData_00
+          sortKey: -1547374969252.5
+        method: POST
+        body:
+          mimeType: multipart/form-data
+          params:
+            - name: code
+              value: ""
+              disabled: false
+            - name: versionName
+              value: ""
+              disabled: true
+            - name: createVersion
+              value: ""
+              disabled: true
+            - name: revisionStrategy
+              value: ""
+              disabled: true
+            - name: filename
+              value: ""
+              disabled: true
+              multiline: false
+              type: text
+            - name: contentType
+              value: ""
+              disabled: true
+              multiline: false
+              type: text
+            - name: sys.rev
+              value: ""
+              disabled: true
+              multiline: false
+              type: text
+            - name: data
+              value: ""
+              type: file
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{ awid  }}/uu-app-binarystore/getBinary"
+        name: uu-app-binarystore/getBinary
+        meta:
+          id: req_5a90c6383779488b934815dd7ce5d105
+          created: 1549873820458
+          modified: 1554803051465
+          isPrivate: false
+          description: |-
+            #### uuCmd documentation
+            https://uuapp.plus4u.net/uu-bookkit-maing01/34df77ebe0a04adda6dcd62d32c4f513/book/page?code=getBinary_00
+          sortKey: -1547374969202.5
+        method: GET
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "code": "..."
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{
+          awid  }}/uu-app-binarystore/updateBinary"
+        name: uu-app-binarystore/updateBinary
+        meta:
+          id: req_0983a22772cb4e4389dc858045515514
+          created: 1549873977671
+          modified: 1554803082398
+          isPrivate: false
+          description: |-
+            #### uuCmd documentation
+            https://uuapp.plus4u.net/uu-bookkit-maing01/34df77ebe0a04adda6dcd62d32c4f513/book/page?code=updateBinary_00
+          sortKey: -1546294502380.25
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "code": "...", 
+              "name": "...", 
+              "description": "...", 
+              "versionName": "...", 
+              "filename": "...", 
+              "contentType": "...", 
+              "revisionStrategy": "...",
+              "sys": {
+                "rev": "..." 
+              }
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{
+          awid  }}/uu-app-binarystore/deleteBinary"
+        name: uu-app-binarystore/deleteBinary
+        meta:
+          id: req_eccd783ade304424a752384897a44b0d
+          created: 1549874051681
+          modified: 1554803097638
+          isPrivate: false
+          description: |-
+            #### uuCmd documentation
+            https://uuapp.plus4u.net/uu-bookkit-maing01/34df77ebe0a04adda6dcd62d32c4f513/book/page?code=deleteBinary_00
+          sortKey: -1545754268969.125
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "code": "..."
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{
+          awid  }}/uu-app-binarystore/listBinaries"
+        name: uu-app-binarystore/listBinaries
+        meta:
+          id: req_a0c8b482727d452fa0c98d7fd46c75f4
+          created: 1549874097644
+          modified: 1554803133643
+          isPrivate: false
+          description: |-
+            #### uuCmd documentation
+            https://uuapp.plus4u.net/uu-bookkit-maing01/34df77ebe0a04adda6dcd62d32c4f513/book/page?code=listBinaries_00
+          sortKey: -1545484152263.5625
+        method: GET
+        body:
+          mimeType: application/json
+          text: |-
+            { 
+              "codeList": ["..."],
+              "nameList": ["..."],
+              "contentTypeList": ["..."], 
+              "pageInfo": {} 
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{
+          awid  }}/uu-app-binarystore/getBinaryVersion"
+        name: uu-app-binarystore/getBinaryVersion
+        meta:
+          id: req_584e987b63224c9dad4ac7d1996cf99a
+          created: 1549874169160
+          modified: 1554803152893
+          isPrivate: false
+          description: |-
+            #### uuCmd documentation
+            https://uuapp.plus4u.net/uu-bookkit-maing01/34df77ebe0a04adda6dcd62d32c4f513/book/page?code=getBinaryVersion_00
+          sortKey: -1545349093910.7812
+        method: GET
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "id": "...", 
+              "code": "...",
+              "versionName": "..." 
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{
+          awid  }}/uu-app-binarystore/updateBinaryVersion"
+        name: uu-app-binarystore/updateBinaryVersion
+        meta:
+          id: req_2bc3bad766e4497c9b93a5b277af9bed
+          created: 1549874236065
+          modified: 1554803192746
+          isPrivate: false
+          description: |-
+            #### uuCmd documentation
+            https://uuapp.plus4u.net/uu-bookkit-maing01/34df77ebe0a04adda6dcd62d32c4f513/book/page?code=updateBinaryVersion_00
+          sortKey: -1545281564734.3906
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "id": "..." ,
+              "versionName": "...", 
+              "revisionStrategy": "...", 
+              "sys": {
+                "rev": "..." 
+              }
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{
+          awid  }}/uu-app-binarystore/getBinaryVersionData"
+        name: uu-app-binarystore/getBinaryVersionData
+        meta:
+          id: req_c4a7257c8091427186f8a63a9a380377
+          created: 1549874323580
+          modified: 1554803210790
+          isPrivate: false
+          description: |-
+            #### uuCmd documentation
+            https://uuapp.plus4u.net/uu-bookkit-maing01/34df77ebe0a04adda6dcd62d32c4f513/book/page?code=getBinaryVersionData_00
+          sortKey: -1545247800146.1953
+        method: GET
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "id": "...", 
+              "code": "...",
+              "versionName": "...",
+              "contentDisposition": "..."
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{
+          awid  }}/uu-app-binarystore/deleteBinaryVersion"
+        name: uu-app-binarystore/deleteBinaryVersion
+        meta:
+          id: req_fb81d59f0ac14055b47b0f55e0562588
+          created: 1549874383993
+          modified: 1554803223425
+          isPrivate: false
+          description: |-
+            #### uuCmd documentation
+            https://uuapp.plus4u.net/uu-bookkit-maing01/34df77ebe0a04adda6dcd62d32c4f513/book/page?code=deleteBinaryVersion_00
+          sortKey: -1545230917852.0977
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "id": "..."
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{
+          awid  }}/uu-app-binarystore/listBinaryVersions"
+        name: uu-app-binarystore/listBinaryVersions
+        meta:
+          id: req_7056a65350004872be3131fe417fea2f
+          created: 1549874428236
+          modified: 1554803242760
+          isPrivate: false
+          description: |-
+            #### uuCmd documentation
+            https://uuapp.plus4u.net/uu-bookkit-maing01/34df77ebe0a04adda6dcd62d32c4f513/book/page?code=listBinaryVersions_00
+          sortKey: -1545222476705.0488
+        method: GET
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "code": "...",
+              "pageInfo": {}
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: uuAppAuditLog
+    meta:
+      id: fld_2e54c4d63ebb4d33b35430d99dfc8a6c
+      created: 1549874536645
+      modified: 1594391079533
+      sortKey: -1549535903150.125
+      description: ""
+    children:
+      - url: "{{ host  }}/{{ contextPath  }}/{{ awid  }}/sys/logRecord/list"
+        name: sys/logRecord/list
+        meta:
+          id: req_098caa90f1f440169f8fa1c15d0b758b
+          created: 1549876546784
+          modified: 1594392969086
+          isPrivate: false
+          description: |
+            #### uuCmd documentation
+
+            https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=82806678
+          sortKey: -1549535903072
+        method: GET
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "timeFrom": "2010-03-15T10:00:00.124Z",
+              "timeTo": "2010-03-15T12:30:00.892Z",
+              "pageInfo": {
+                "pageIndex": 0, 
+                "pageSize": 100 
+              }
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{ awid  }}/sys/logRecord/delete"
+        name: sys/logRecord/delete
+        meta:
+          id: req_e8dbf0aef0aa4c8d824e860c9dccdb9a
+          created: 1549876623298
+          modified: 1594392944482
+          isPrivate: false
+          description: |
+            #### uuCmd documentation
+            https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=40524079
+          sortKey: -1549535903009.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "toTime": "2010-03-15T14:45.000Z"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: uuSubAppInstance
+    meta:
+      id: fld_259aae69c798442d9e76c8a82b6a09b3
+      created: 1586511533911
+      modified: 1594386233445
+      sortKey: -1549535903297
+      description: ""
+    children:
+      - url: "{{ host  }}/{{ contextPath  }}/{{ asid  }}/sys/uuSubAppInstance/init"
+        name: sys/uuSubAppInstance/init
+        meta:
+          id: req_d173e9bbd28c40a8b13cdb5326ea7156
+          created: 1586511533962
+          modified: 1766258840421
+          isPrivate: false
+          description: |-
+            uuCmd documentation
+
+            https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=38581871
+          sortKey: -1529485542367.414
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "uuShoppinglistMaing02",
+            	"description": "...",
+            	"uuAppProfileAsidAuthorities": "urn:uu:GGPLUS4U",
+            	"sysState": "active",
+            	"adviceNote": {
+            		"message": "Migration ...",
+            		"severity": "info",
+            		"estimatedEndTime": "2020-04-21T10:15:30.000Z"
+            	}
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{ asid  }}/sys/uuSubAppInstance/get"
+        name: sys/uuSubAppInstance/get
+        meta:
+          id: req_d2acbcab09bf46d88b295199f1f19a10
+          created: 1586511533965
+          modified: 1766258831031
+          isPrivate: false
+          description: |
+            uuCmd documentation
+
+            https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=91934805
+          sortKey: -1529485542317.414
+        method: GET
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{ asid  }}/sys/uuSubAppInstance/set"
+        name: sys/uuSubAppInstance/set
+        meta:
+          id: req_89d8d1d0a373442d9c5dddb31228b361
+          created: 1586511533968
+          modified: 1594388037014
+          isPrivate: false
+          description: |
+            uuCmd description
+
+            https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=04769399
+          sortKey: -1529485542280.0605
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "uuShoppinglistMaing02",
+            	"description": "Updated description of an application.",
+            	"adviceNote": {
+            		"message": "Migration to version 2.0",
+            		"severity": "info",
+            		"estimatedEndTime": "2018-06-21T10:15:30.000Z"
+            	}
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - name: permission
+        meta:
+          id: fld_4037d78dfe6c4699b3b62579ff6e7264
+          created: 1586511533913
+          modified: 1586511533913
+          sortKey: -1529485542042.707
+          description: ""
+        children:
+          - url: "{{ host  }}/{{ contextPath  }}/{{
+              asid  }}/sys/uuSubAppInstance/permission/create"
+            name: sys/uuSubAppInstance/permission/create
+            meta:
+              id: req_3835ab34696b421b94c17006ed0e2b4c
+              created: 1586511533917
+              modified: 1766259236152
+              isPrivate: false
+              description: |
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=43504809
+              sortKey: -1529485542250.7256
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "profile": "Executives",  
+                  "uuIdentityList": ["7534-7888-9403-0000"]
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ host  }}/{{ contextPath  }}/{{
+              asid  }}/sys/uuSubAppInstance/permission/delete"
+            name: sys/uuSubAppInstance/permission/delete
+            meta:
+              id: req_0a574d8c06c1401fa48d3ff7cb2708fe
+              created: 1586511533920
+              modified: 1594388677268
+              isPrivate: false
+              description: |
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=03162585
+              sortKey: -1529485542200.7256
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "profile": "AsidAuthorities",  
+                  "uuIdentityList": ["1-1","2-2"]
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ host  }}/{{ contextPath  }}/{{
+              asid  }}/sys/uuSubAppInstance/permission/list"
+            name: sys/uuSubAppInstance/permission/list
+            meta:
+              id: req_e940307a36e04e3290f0db8bae9c8e3c
+              created: 1586511533925
+              modified: 1766259209986
+              isPrivate: false
+              description: |
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=16286826
+              sortKey: -1529485542175.7256
+            method: GET
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "profileList": ["Executives"]
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: profile
+        meta:
+          id: fld_6645329309f5420d8a7b6344a636c3f2
+          created: 1586511533929
+          modified: 1594386465871
+          sortKey: -1529485542092.707
+          description: ""
+        children:
+          - url: "{{ host  }}/{{ contextPath  }}/{{
+              asid  }}/sys/uuSubAppInstance/profile/get"
+            name: sys/uuSubAppInstance/profile/get
+            meta:
+              id: req_5859e0f90b42440e98bbea6bc594989c
+              created: 1586511533933
+              modified: 1594388577354
+              isPrivate: false
+              description: |
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=66070648
+              sortKey: -1529485542167.707
+            method: GET
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"profile": "AsidAuthorities"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ host  }}/{{ contextPath  }}/{{
+              asid  }}/sys/uuSubAppInstance/profile/set"
+            name: sys/uuSubAppInstance/profile/set
+            meta:
+              id: req_8a831a049d4c46faab4cc79ccf4ffb75
+              created: 1586511533936
+              modified: 1594388612832
+              isPrivate: false
+              description: |+
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=17253405
+
+              sortKey: -1529485542117.707
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"profile": "AsidAuthorities",
+                	"roleGroupUri": "urn:uu:GGPLUS4U"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ host  }}/{{ contextPath  }}/{{
+              asid  }}/sys/uuSubAppInstance/profile/list"
+            name: sys/uuSubAppInstance/profile/list
+            meta:
+              id: req_24a1155e2af14bc8ad21302621f8f5c1
+              created: 1586511533940
+              modified: 1594388625819
+              isPrivate: false
+              description: |
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=66504537
+              sortKey: -1529485542067.707
+            method: GET
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"profileList": [
+                		"AsidAuthorities",
+                		"AsidExecutives"
+                	],
+                	"pageInfo": {
+                		"pageIndex": 0,
+                		"pageSize": 1000
+                	}
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: dump/restore/upgrade
+        meta:
+          id: fld_2665fba2957c401c96cc07b83cebc8c4
+          created: 1586511533943
+          modified: 1594388768975
+          sortKey: -1529485541992.707
+          description: ""
+        children:
+          - url: "{{ host  }}/{{ contextPath  }}/{{ asid  }}/sys/uuSubAppInstance/dump"
+            name: sys/uuSubAppInstance/dump
+            meta:
+              id: req_2c1abc0a9af946cda036343da54485b6
+              created: 1586511533945
+              modified: 1594388704466
+              isPrivate: false
+              description: |
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=84311422
+              sortKey: -1529485542163.1157
+            method: GET
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ host  }}/{{ contextPath  }}/{{ asid  }}/sys/uuSubAppInstance/restore"
+            name: sys/uuSubAppInstance/restore
+            meta:
+              id: req_35897533d9e841e99de3aa1a4b6d9581
+              created: 1586511533948
+              modified: 1594388723981
+              isPrivate: false
+              description: |
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=63235663
+              sortKey: -1529485542113.1157
+            method: POST
+            body:
+              mimeType: multipart/form-data
+              params:
+                - name: strictMode
+                  value: "true"
+                  description: ""
+                - name: data
+                  value: ""
+                  description: ""
+                  fileName: C:\Users\User\Downloads\2020-03-29_CZ_Mobility_Report_en.pdf
+                  type: file
+            headers:
+              - name: Content-Type
+                value: multipart/form-data
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ host  }}/{{ contextPath  }}/{{ asid  }}/sys/uuSubAppInstance/upgrade"
+            name: sys/uuSubAppInstance/upgrade
+            meta:
+              id: req_44671a6d2fbe4f9883c1a652314cdc03
+              created: 1594388806984
+              modified: 1594389650797
+              isPrivate: false
+              description: |+
+                uuCmd documentation 
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=29499104
+
+              sortKey: -1529485542063.1157
+            method: POST
+            body:
+              mimeType: application/json
+              text: |+
+                {
+                	"uuAppProfileAsidAuthorities": "urn:uu:GGPLUS4U", 
+                	"uuAppProfileAuthorities": "urn:uu:GGPLUS4U" 
+                }
+                  
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: sysState
+        meta:
+          id: fld_9e0a4487826649ee89276863cede193c
+          created: 1586511533951
+          modified: 1586511533951
+          sortKey: -1529485542117.707
+          description: ""
+        children:
+          - url: "{{ host  }}/{{ contextPath  }}/{{
+              asid  }}/sys/uuSubAppInstance/setActiveSysState"
+            name: sys/uuSubAppInstance/setActiveSysState
+            meta:
+              id: req_ec3a026c6b5e42f2bff5a306be4e6cdf
+              created: 1586511533953
+              modified: 1594388102201
+              isPrivate: false
+              description: |
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=37885552
+              sortKey: -1529485542242.707
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"adviceNote": {
+                		"message": "Migration to version 3.0",
+                		"severity": "info",
+                		"estimatedEndTime": "2018-06-21T10:15:30.000Z"
+                	}
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ host  }}/{{ contextPath  }}/{{
+              asid  }}/sys/uuSubAppInstance/setRestrictedSysState"
+            name: sys/uuSubAppInstance/setRestrictedSysState
+            meta:
+              id: req_11afa07c6b844ff682df7879fd1f27e9
+              created: 1586511533956
+              modified: 1594388124477
+              isPrivate: false
+              description: |
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=15462359
+              sortKey: -1529485542192.707
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"adviceNote": {
+                		"message": "Migration to version 4.0",
+                    "severity": "info",
+                    "estimatedEndTime": "2018-06-21T10:15:30.000Z"
+                  }
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+  - name: uuAppWorkspace
+    meta:
+      id: fld_64c8ca05939543639d77cab15d10d64a
+      created: 1586511630848
+      modified: 1766259600377
+      sortKey: -1549535903272
+      description: ""
+    children:
+      - url: "{{ host  }}/{{ contextPath  }}/{{ asid  }}/sys/uuAppWorkspace/create"
+        name: sys/uuAppWorkspace/create
+        meta:
+          id: req_09c5b46a547848ba8bc4c7d210ef9aef
+          created: 1586511630925
+          modified: 1665041785382
+          isPrivate: false
+          description: |
+            uuCmd documentation
+
+            https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=34351524
+          sortKey: 0
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"awidList": [
+            		"{{ awid  }}"
+            	]
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{ awid  }}/sys/uuAppWorkspace/get"
+        name: sys/uuAppWorkspace/get
+        meta:
+          id: req_b0e10743cfd1422d8b52cadeadd51929
+          created: 1586511630928
+          modified: 1594389573841
+          isPrivate: false
+          description: |
+            uuCmd documentation
+
+            https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=67367623
+          sortKey: 200
+        method: GET
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{ awid  }}/sys/uuAppWorkspace/set"
+        name: sys/uuAppWorkspace/set
+        meta:
+          id: req_9ad6afe55d6e4af5b97ca2d4c4080494
+          created: 1586511630930
+          modified: 1594389573841
+          isPrivate: false
+          description: |
+            uuCmd documentation
+
+            https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=86353607
+          sortKey: 400
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "name": "{uuApp}-{uuSubApp}{g00}",
+              "description": "Description of an application.",
+              "adviceNote":{
+                "message": "Migration to version 2.0",             
+                "severity": "info",                                 
+                "estimatedEndTime": "2018-06-21T10:15:30.000Z"     
+              }
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{ awid  }}/sys/uuAppWorkspace/init"
+        name: sys/uuAppWorkspace/init
+        meta:
+          id: req_bf126403995c47f29c24bb7e8f6430fa
+          created: 1586511630933
+          modified: 1594389573841
+          isPrivate: false
+          description: |
+            uuCmd documentation
+
+            https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=96447535
+          sortKey: 100
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"uuAppProfileAuthorities": "urn:uu:GGPLUS4U",
+            	"uuBtLocationUri": ""
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{
+          awid  }}/sys/uuAppWorkspace/setAuthorizationStrategy"
+        name: sys/uuAppWorkspace/setAuthorizationStrategy
+        meta:
+          id: req_fd7b6d58122441abb97b97021a62fa76
+          created: 1586511630938
+          modified: 1594389573841
+          isPrivate: false
+          description: |
+            uuCmd documentation
+
+            https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=95972667
+          sortKey: 800
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"authorizationStrategy": "roleGroupInterface"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{ asid  }}/sys/uuAppWorkspace/list"
+        name: sys/uuAppWorkspace/list
+        meta:
+          id: req_f6aba85a322446ab803812e6c7bbca4e
+          created: 1586511630941
+          modified: 1594389573841
+          isPrivate: false
+          description: |
+            uuCmd documentation
+
+            https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=72983013
+          sortKey: 300
+        method: GET
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"awidList": [
+            		"{{ awid  }}"
+            	],
+            	"sysStateList": [
+            		"active",
+            		"readOnly"
+            	],
+            	"pageInfo": {
+            		"pageIndex": 0,
+            		"pageSize": 1000
+            	}
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{
+          awid  }}/sys/uuAppWorkspace/listImportMappings"
+        name: sys/uuAppWorkspace/listImportMappings
+        meta:
+          id: req_eaaaf84e7871455096dcc8ec46608160
+          created: 1586511630943
+          modified: 1594389862583
+          isPrivate: false
+          description: |
+            uuCmd documentation
+
+            https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=03029082
+          sortKey: 1000
+        method: GET
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"pageInfo": {
+            		"pageIndex": 0,
+            		"pageSize": 1000
+            	}
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{
+          awid  }}/sys/uuAppWorkspace/deleteImportMappings"
+        name: sys/uuAppWorkspace/deleteImportMappings
+        meta:
+          id: req_2e5c85bb4d9649e692ea57bc4f32035f
+          created: 1586511630946
+          modified: 1594389875585
+          isPrivate: false
+          description: |
+            uuCmd documentation
+
+            https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=27884385
+          sortKey: 1100
+        method: POST
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{
+          awid  }}/sys/uuAppWorkspace/connectArtifact"
+        name: sys/uuAppWorkspace/connectArtifact
+        meta:
+          id: req_f0c012d760994a47b06e8f7bd3088a52
+          created: 1594389570764
+          modified: 1594389755219
+          isPrivate: false
+          description: |
+            uuCmd description
+
+            https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=41827932
+          sortKey: 850
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"artifactUri": "", 
+            	"synchronizeArtifactBasicAttributes": true
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          token: "{{token}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{ awid  }}/sys/uuAppWorkspace/load"
+        name: sys/uuAppWorkspace/load
+        meta:
+          id: req_c0ec8c60497c441590d0b5057ebb7fc7
+          created: 1650461744962
+          modified: 1650461744962
+          isPrivate: false
+          description: |
+            uuCmd documentation
+
+            https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=13293945
+          sortKey: 350
+        method: GET
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{
+          awid  }}/sys/uuAppWorkspace/loadBasicData"
+        name: sys/uuAppWorkspace/loadBasicData
+        meta:
+          id: req_0cad54b603b849cc87de98433b897def
+          created: 1653318498813
+          modified: 1653318498813
+          isPrivate: false
+          description: |
+            uuCmd documentation
+
+            https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=00888413
+          sortKey: 350
+        method: GET
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{ asid  }}/sys/uuAppWorkspace/assign"
+        name: sys/uuAppWorkspace/asssign
+        meta:
+          id: req_1d0bfa705f5d4810bd0f886c2c35f296
+          created: 1665041601365
+          modified: 1665041787730
+          isPrivate: false
+          description: |
+            uuCmd documentation
+
+            https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=39897440
+          sortKey: 25
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"awid": "{{ awid  }}",
+            	"name": "uuAppg01Server AppModel",
+            	"description": "Description of uuAppWorskapace",
+            	"license": {
+                "type": "xs",
+                "size": 10
+              },
+            	"awidInitiatorList": [
+            		"{{ awidLicenseOwner  }}"
+            	]
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - name: sysState
+        meta:
+          id: fld_ae5fee5124e74474889d1ae38b42b3e8
+          created: 1586511630851
+          modified: 1594389573841
+          sortKey: 500
+          description: ""
+        children:
+          - url: "{{ host  }}/{{ contextPath  }}/{{ asid  }}/sys/uuAppWorkspace/delete"
+            name: sys/uuAppWorkspace/delete
+            meta:
+              id: req_f55a7263e14f436886f121437cf3a08c
+              created: 1586511630870
+              modified: 1594389340669
+              isPrivate: false
+              description: |
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=86651523
+              sortKey: -1529485542017.9268
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"awid": "{{ awid  }}"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ host  }}/{{ contextPath  }}/{{ asid  }}/sys/uuAppWorkspace/close"
+            name: sys/uuAppWorkspace/close
+            meta:
+              id: req_cf17df924a974ac18d9a1fb2a05693a0
+              created: 1586511630873
+              modified: 1594389326500
+              isPrivate: false
+              description: |
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=73566628
+              sortKey: -1529485542067.9268
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"awid": "{{ awid  }}"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ host  }}/{{ contextPath  }}/{{
+              awid  }}/sys/uuAppWorkspace/setActiveSysState"
+            name: sys/uuAppWorkspace/setActiveSysState
+            meta:
+              id: req_cf929980119d41909f8770286958ad39
+              created: 1586511630876
+              modified: 1594389196443
+              isPrivate: false
+              description: |
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=21522998
+              sortKey: -1529485542317.9268
+            method: POST
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ host  }}/{{ contextPath  }}/{{
+              awid  }}/sys/uuAppWorkspace/setRestrictedSysState"
+            name: sys/uuAppWorkspace/setRestrictedSysState
+            meta:
+              id: req_3e010ca74ea04077b628934703123780
+              created: 1586511630880
+              modified: 1594389268952
+              isPrivate: false
+              description: |+
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=66032167
+
+              sortKey: -1529485542192.9268
+            method: POST
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ host  }}/{{ contextPath  }}/{{
+              awid  }}/sys/uuAppWorkspace/setReadOnlySysState"
+            name: sys/uuAppWorkspace/setReadOnlySysState
+            meta:
+              id: req_070ef865ddbf46ecb83ee52e3782886b
+              created: 1586511630882
+              modified: 1594389249500
+              isPrivate: false
+              description: |
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=53556648
+              sortKey: -1529485542217.9268
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ host  }}/{{ contextPath  }}/{{ asid  }}/sys/uuAppWorkspace/suspend"
+            name: sys/uuAppWorkspace/suspend
+            meta:
+              id: req_79ffecd171c246afb8b46773ce738e23
+              created: 1586511630886
+              modified: 1594389297862
+              isPrivate: false
+              description: |
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=49149093
+              sortKey: -1529485542167.9268
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"awid": "{{ awid  }}"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ host  }}/{{ contextPath  }}/{{ asid  }}/sys/uuAppWorkspace/resume"
+            name: sys/uuAppWorkspace/resume
+            meta:
+              id: req_3d59fbe47c8d40cc8e8ebadc851c9a79
+              created: 1586511630889
+              modified: 1594389313999
+              isPrivate: false
+              description: |
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=03803603
+              sortKey: -1529485542117.9268
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"awid": "{{ awid  }}"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: profile
+        meta:
+          id: fld_d85c41ce79794be6843e0ceb97116873
+          created: 1586511630892
+          modified: 1594389573841
+          sortKey: 600
+          description: ""
+        children:
+          - url: "{{ host  }}/{{ contextPath  }}/{{ awid  }}/sys/uuAppWorkspace/profile/get"
+            name: sys/uuAppWorkspace/profile/get
+            meta:
+              id: req_f8efe5a589c14803a738293d21da439c
+              created: 1586511630895
+              modified: 1594388316735
+              isPrivate: false
+              description: |
+                uuCmd documentation
+              sortKey: -1529485542242.8582
+            method: GET
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"profile": "Authorities"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ host  }}/{{ contextPath  }}/{{ awid  }}/sys/uuAppWorkspace/profile/set"
+            name: sys/uuAppWorkspace/profile/set
+            meta:
+              id: req_ec0e3d6f41474d5f92fac6831745309f
+              created: 1586511630897
+              modified: 1594389379434
+              isPrivate: false
+              description: |
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=66907391
+              sortKey: -1529485542242.856
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "profile": "Authorities", 
+                  "roleGroupUri": "ues:[84723967990075193]:[74309394208653707]" 
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ host  }}/{{ contextPath  }}/{{
+              awid  }}/sys/uuAppWorkspace/profile/list"
+            name: sys/uuAppWorkspace/profile/list
+            meta:
+              id: req_4bdc34fdaf8d489ba5381478158f9151
+              created: 1586511630900
+              modified: 1594389392592
+              isPrivate: false
+              description: |+
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=00156100
+
+              sortKey: -1529485542192.856
+            method: GET
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"profileList": [
+                		"Authorities"
+                	],
+                	"pageInfo": {
+                		"pageIndex": 0,
+                		"pageSize": 1000
+                	}
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ host  }}/{{ contextPath  }}/{{ asid
+              }}/sys/uuAppWorkspace/profile/update"
+            name: sys/uuAppWorkspace/profile/update
+            meta:
+              id: req_22743db827664a629195f71ee6204dd0
+              created: 1586511630902
+              modified: 1594389424670
+              isPrivate: false
+              description: |
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=21962106
+              sortKey: -1529485542142.856
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"awidList": [
+                		"{{ awid  }}"
+                	]
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: permission
+        meta:
+          id: fld_15c2c9dc3144470d865e755b9d9b7a31
+          created: 1586511630905
+          modified: 1594389573841
+          sortKey: 700
+          description: ""
+        children:
+          - url: "{{ host  }}/{{ contextPath  }}/{{
+              awid  }}/sys/uuAppWorkspace/permission/create"
+            name: sys/uuAppWorkspace/permission/create
+            meta:
+              id: req_93d39b0f79ff4adcafd6074942e93f90
+              created: 1586511630907
+              modified: 1766259641719
+              isPrivate: false
+              description: |
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=19774526
+              sortKey: -1529485542242.8535
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"profile": "Executives",
+                	"uuIdentityList": [
+                		"7534-7888-9403-0000"
+                	]
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ host  }}/{{ contextPath  }}/{{
+              awid  }}/sys/uuAppWorkspace/permission/delete"
+            name: sys/uuAppWorkspace/permission/delete
+            meta:
+              id: req_67de54bc500e4471ae7639229d412b84
+              created: 1586511630910
+              modified: 1594389464768
+              isPrivate: false
+              description: |
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=43223733
+              sortKey: -1529485542242.7803
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"profile": "Executives",
+                	"uuIdentityList": [
+                		"1-1"
+                	]
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ host  }}/{{ contextPath  }}/{{
+              awid  }}/sys/uuAppWorkspace/permission/list"
+            name: sys/uuAppWorkspace/permission/list
+            meta:
+              id: req_992566c065c54e84a0019c5ecaa6d165
+              created: 1586511630912
+              modified: 1594389476730
+              isPrivate: false
+              description: |+
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=79580196
+
+              sortKey: -1529485542242.7437
+            method: GET
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"profileList": [
+                		"Authorities",
+                		"Executives"
+                	],
+                	"uuIdentityList": [
+                		"1-1"
+                	],
+                	"pageInfo": {
+                		"pageIndex": 0,
+                		"pageSize": 1000
+                	}
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: dump/restore/import
+        meta:
+          id: fld_d15f0c6748244390918171918d7d3716
+          created: 1586511630915
+          modified: 1594389573841
+          sortKey: 900
+          description: ""
+        children:
+          - url: "{{ host  }}/{{ contextPath  }}/{{ awid  }}/sys/uuAppWorkspace/dump"
+            name: sys/uuAppWorkspace/dump
+            meta:
+              id: req_6f82a871891244c695fb31b687fc1de4
+              created: 1586511630917
+              modified: 1594389814075
+              isPrivate: false
+              description: |+
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=57498840
+
+              sortKey: -1529485542152.9858
+            method: GET
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ host  }}/{{ contextPath  }}/{{ awid  }}/sys/uuAppWorkspace/restore"
+            name: sys/uuAppWorkspace/restore
+            meta:
+              id: req_c941edbde9f74000aa0da0cca3fb504a
+              created: 1586511630919
+              modified: 1594389826583
+              isPrivate: false
+              description: |+
+                uuCmd documentation
+
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=49399710
+
+              sortKey: -1529485542102.9858
+            method: POST
+            body:
+              mimeType: multipart/form-data
+              params:
+                - name: strictMode
+                  value: "true"
+                  description: ""
+                - name: data
+                  value: ""
+                  description: ""
+                  fileName: C:\Users\User\Downloads\2020-03-29_CZ_Mobility_Report_en.pdf
+                  type: file
+            headers:
+              - name: Content-Type
+                value: multipart/form-data
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ host  }}/{{ contextPath  }}/{{ awid  }}/sys/uuAppWorkspace/import"
+            name: sys/uuAppWorkspace/import
+            meta:
+              id: req_ac75d29dd8d24ef4a8c6332d43abbc16
+              created: 1586511630922
+              modified: 1594389839483
+              isPrivate: false
+              description: |+
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=85699903
+
+              sortKey: -1529485542085.4563
+            method: POST
+            body:
+              mimeType: multipart/form-data
+              params:
+                - name: data
+                  value: ""
+                  description: ""
+                  fileName: C:\Users\User\Downloads\2020-03-29_CZ_Mobility_Report_en.pdf
+                  type: file
+            headers:
+              - name: Content-Type
+                value: multipart/form-data
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+  - name: uuAppDataStore
+    meta:
+      id: fld_100d6763263249cd8c2c23b90ef2af26
+      created: 1594387129135
+      modified: 1594387138126
+      sortKey: -1549535903234.5
+      description: ""
+    children:
+      - url: "{{ host  }}/{{ contextPath  }}/{{ asid  }}/sys/uuAppDataStore/drop"
+        name: sys/uuAppDataStore/drop
+        meta:
+          id: req_f076cf10aca047d8b3f106de3ec0d671
+          created: 1586511533959
+          modified: 1594390561330
+          isPrivate: false
+          description: |
+            uuCmd documentation
+
+            https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=23782439
+          sortKey: -1529485542063.1157
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"dataStoreNames": ["primary", "binary"], 
+              "recreateIndexes": true
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{
+          contextPath  }}/{{awid}}/sys/uuAppDataStore/stats/calculate"
+        name: sys/uuAppDataStore/stats/calculate
+        meta:
+          id: req_f131d57a5a064561a36757bab6bcdaee
+          created: 1594389976919
+          modified: 1594390573660
+          isPrivate: false
+          description: |
+            uuCmd documentation
+
+            https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=06445701
+          sortKey: -1529485542040.5212
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{awid}}/sys/uuAppDataStore/stats/get"
+        name: sys/uuAppDataStore/stats/get
+        meta:
+          id: req_e91bc646db3643e09e44214c4821c00e
+          created: 1594390025930
+          modified: 1594390607846
+          isPrivate: false
+          description: |
+            uuCmd documentation
+
+            https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=14650107
+          sortKey: -1529485542029.224
+        method: GET
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ host  }}/{{ contextPath  }}/{{ asid  }}/sys/uuAppDataStore/stats/list"
+        name: sys/uuAppDataStore/stats/list
+        meta:
+          id: req_86f92874421e4776a306a01ee8dddd58
+          created: 1594390033798
+          modified: 1594392809889
+          isPrivate: false
+          description: |+
+            uuCmd documentation
+
+            https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=34325228
+
+          sortKey: -1529485542023.5754
+        method: GET
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"awidList": ["..."], 
+              "pageInfo": { 
+                "pageIndex": 0, 
+                "pageSize": 1000 
+              }
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          token: "{{ token  }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: uuAppRepresentation
+    meta:
+      id: fld_bef96fdae4294bcb9caf0f12d340889e
+      created: 1594391067047
+      modified: 1594391072969
+      sortKey: -1549535903165.75
+      description: ""
+    children:
+      - name: uuSubAppInstance
+        meta:
+          id: fld_e5647dcaa7324db891a9c67c87e49b63
+          created: 1594391128877
+          modified: 1594391481785
+          sortKey: -1594391128977
+          description: ""
+        children:
+          - url: "{{ host  }}/{{
+              contextPath  }}/{{asid}}/sys/uuSubAppInstance/productInfo/get"
+            name: sys/uuSubAppInstance/productInfo/get
+            meta:
+              id: req_cb14b320010a42e9a9ff19ee7bfa3180
+              created: 1594391656394
+              modified: 1594392622470
+              isPrivate: false
+              description: |+
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=11393797
+
+
+              sortKey: -1594391125436.5
+            method: GET
+            body:
+              mimeType: application/json
+              text: |-
+                {
+
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ host  }}/{{
+              contextPath  }}/{{asid}}/sys/uuSubAppInstance/productLogo/get"
+            name: sys/uuSubAppInstance/productLogo/get
+            meta:
+              id: req_989b63cacfe64511a112721861260505
+              created: 1594391899376
+              modified: 1594392644227
+              isPrivate: false
+              description: |+
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=00774134
+
+
+
+              sortKey: -1593653191140.25
+            method: GET
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "type": "16x9",        
+                  "language": "cs" 
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ host  }}/{{
+              contextPath  }}/{{asid}}/sys/uuSubAppInstance/productInfo/set"
+            name: sys/uuSubAppInstance/productInfo/set
+            meta:
+              id: req_4527ec28c3c0421b9220e987d7e132f9
+              created: 1594392085522
+              modified: 1594393651334
+              isPrivate: false
+              description: |+
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=53862166
+
+
+
+              sortKey: -1594022158288.375
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {  
+                	"name": {            
+                    "en": "...",      
+                    "cs": "..."
+                  },
+                  "desc": {                 
+                    "en": "...",
+                    "cs": "..."
+                  },
+                  "tags": ["award"],     
+                  "logo": {            
+                    "colorSchema": "blue",            
+                    "backgroundColor": "#ff0000",    
+                    "backgroundColorTo": "#ff0000",  
+                    "textColor": "#ff0000",           
+                    "backgroundImageSrc": "https://",
+                    "title": {                          
+                      "en": "...",       
+                      "cs": "..."
+                    },
+                    "subtitle": {                             
+                      "cs": "čeština",
+                      "en": "english"
+                    }     
+                	}
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ host  }}/{{
+              contextPath  }}/{{asid}}/sys/uuSubAppInstance/productLogo/set"
+            name: sys/uuSubAppInstance/productLogo/set
+            meta:
+              id: req_b43caee4ef5d48f19076d4ea7ebebdd0
+              created: 1594392420929
+              modified: 1594392653705
+              isPrivate: false
+              description: |+
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=60152005
+
+
+
+              sortKey: -1593284223992.125
+            method: POST
+            body:
+              mimeType: multipart/form-data
+              params:
+                - name: type
+                  value: 16x9
+                  description: ""
+                - name: language
+                  value: cs
+                  description: ""
+                  multiline: false
+                  type: text
+                - name: logo
+                  value: ""
+                  description: ""
+                  type: file
+            headers:
+              - name: Content-Type
+                value: multipart/form-data
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: uuAppWorkspace
+        meta:
+          id: fld_03d12bc95f4640d895da6265d6d4bbe3
+          created: 1594391469005
+          modified: 1594391479102
+          sortKey: -1594391128927
+          description: ""
+        children:
+          - url: "{{ host  }}/{{
+              contextPath  }}/{{awid}}/sys/uuAppWorkspace/productInfo/get"
+            name: sys/uuAppWorkspace/productInfo/get
+            meta:
+              id: req_5713344c74c94ca7a23700e41c83389e
+              created: 1594391820254
+              modified: 1594392665851
+              isPrivate: false
+              description: |+
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=63143332
+
+
+
+              sortKey: -1594391128877
+            method: GET
+            body:
+              mimeType: application/json
+              text: |-
+                {
+
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ host  }}/{{
+              contextPath  }}/{{awid}}/sys/uuAppWorkspace/productLogo/get"
+            name: sys/uuAppWorkspace/productLogo/get
+            meta:
+              id: req_3f0662b312c84826a809b2414367d2ff
+              created: 1594391976908
+              modified: 1594392690330
+              isPrivate: false
+              description: |+
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=57615621
+
+
+
+              sortKey: -1594391127156.75
+            method: GET
+            body:
+              mimeType: application/json
+              text: |-
+                {
+
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ host  }}/{{
+              contextPath  }}/{{awid}}/sys/uuAppWorkspace/productInfo/set"
+            name: sys/uuAppWorkspace/productInfo/set
+            meta:
+              id: req_9bd63cff490247fb869c7ce18858e597
+              created: 1594392098698
+              modified: 1594393656575
+              isPrivate: false
+              description: |+
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=09111800
+
+
+
+              sortKey: -1594391128016.875
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {  
+                	"name": {            
+                    "en": "...",      
+                    "cs": "..."
+                  },
+                  "desc": {                 
+                    "en": "...",
+                    "cs": "..."
+                  },
+                  "tags": ["award"],     
+                  "logo": {            
+                    "colorSchema": "blue",            
+                    "backgroundColor": "#ff0000",    
+                    "backgroundColorTo": "#ff0000",  
+                    "textColor": "#ff0000",           
+                    "backgroundImageSrc": "https://",
+                    "title": {                          
+                      "en": "...",       
+                      "cs": "..."
+                    },
+                    "subtitle": {                             
+                      "cs": "čeština",
+                      "en": "english"
+                    }     
+                	}
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ host  }}/{{
+              contextPath  }}/{{awid}}/sys/uuAppWorkspace/productLogo/set"
+            name: sys/uuAppWorkspace/productLogo/set
+            meta:
+              id: req_842a02b4bf434709aaddb4458fa62055
+              created: 1594392415079
+              modified: 1594392703494
+              isPrivate: false
+              description: |+
+                uuCmd documentation
+
+                https://uuapp.plus4u.net/uu-bookkit-maing01/d11a43aa3a214083b84a4e4103a4f635/book/page?code=05484572
+
+
+
+              sortKey: -1594391126296.625
+            method: POST
+            body:
+              mimeType: multipart/form-data
+              params:
+                - name: type
+                  value: 16x9
+                  description: ""
+                - name: language
+                  value: cs
+                  description: ""
+                - name: logo
+                  value: ""
+                  description: ""
+                  disabled: false
+                  type: file
+            headers:
+              - name: Content-Type
+                value: multipart/form-data
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+  - name: BE calls CRUD
+    meta:
+      id: fld_b5d6ea7353e34b5db669f0f405adc3db
+      created: 1766258585886
+      modified: 1766274477497
+      sortKey: -1766258585886
+      description: ""
+    children:
+      - name: shoppingList
+        meta:
+          id: fld_e73f908e706e412bbcd0f0e2e2224c29
+          created: 1766274434416
+          modified: 1766274434416
+          sortKey: -1766274434416
+          description: ""
+        children:
+          - url: "{{ _.host }}/{{ _.contextPath }}/{{ _.awid }}/shoppingList/create"
+            name: shoppingList/create
+            meta:
+              id: req_1e7d699500ae46958f95e5d6714f947f
+              created: 1766258590136
+              modified: 1766320481519
+              isPrivate: false
+              description: ""
+              sortKey: -1766274438813
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                "title" : "Shopping List 5"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/12.2.0
+                description: ""
+                disabled: false
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+              prefix: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.host }}/{{ _.contextPath }}/{{ _.awid }}/shoppingList/update"
+            name: shoppingList/update
+            meta:
+              id: req_dab24ef530e848b9845f70d7261b8070
+              created: 1766261947726
+              modified: 1766327027023
+              isPrivate: false
+              description: ""
+              sortKey: -1766274439213
+            method: POST
+            body:
+              mimeType: application/json
+              text: |
+                {
+                "id" : "6947313d4837bde755c2ca59",
+                	"title": "Shopping List 22",
+                "active" : false,
+                	"members": ["0-0", "3-3"]
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/12.2.0
+                description: ""
+                disabled: false
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+              prefix: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.host }}/{{ _.contextPath }}/{{ _.awid
+              }}/shoppingList/get?id=69470140d0bd161cfc357c28"
+            name: shoppingList/get
+            meta:
+              id: req_33d0d5b9b9b94ebd93ee31217a7a5916
+              created: 1766265965829
+              modified: 1766328802044
+              isPrivate: false
+              description: ""
+              sortKey: -1766274439113
+            method: GET
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"id": "6947313d4837bde755c2ca59"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/12.2.0
+                description: ""
+                disabled: false
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+              prefix: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.host }}/{{ _.contextPath }}/{{ _.awid }}/shoppingList/delete"
+            name: shoppingList/delete
+            meta:
+              id: req_1e3d1e63dec04f16879d86fbc62d0a35
+              created: 1766266784615
+              modified: 1766325662188
+              isPrivate: false
+              description: ""
+              sortKey: -1766274439013
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                "id" : "6947fa6e51c4db5cb0437232"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/12.2.0
+                description: ""
+                disabled: false
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+              prefix: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.host }}/{{ _.contextPath }}/{{ _.awid }}/shoppingList/list"
+            name: shoppingList/list
+            meta:
+              id: req_64d2e93179ed427abaef51768b348018
+              created: 1766272857701
+              modified: 1766328196378
+              isPrivate: false
+              description: ""
+              sortKey: -1766274438913
+            method: GET
+            body:
+              mimeType: application/json
+              text: |-
+                {
+
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/12.2.0
+                description: ""
+                disabled: false
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+              prefix: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: items
+        meta:
+          id: fld_6e2cf8b8665c4fbfb3ee1281d17fc3c4
+          created: 1766274457605
+          modified: 1766274457605
+          sortKey: -1766274457605
+          description: ""
+        children:
+          - url: "{{ _.host }}/{{ _.contextPath }}/{{ _.awid }}/shoppingListItem/create"
+            name: shoppingListItem/create
+            meta:
+              id: req_e180b5c5401947c48a9b04aaf03f907b
+              created: 1766276830021
+              modified: 1766329460656
+              isPrivate: false
+              description: ""
+              sortKey: -1766276806221
+            method: POST
+            body:
+              mimeType: application/json
+              text: |
+                {
+                "shoppingListId": "6947313d4837bde755c2ca59",
+                "name" : "tatranka"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/12.2.0
+                description: ""
+                disabled: false
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+              prefix: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.host }}/{{ _.contextPath }}/{{ _.awid }}/shoppingListItem/get"
+            name: shoppingListItem/get
+            meta:
+              id: req_3e6f5f5dd4fa49779ca0ce31a6a4739f
+              created: 1766277582734
+              modified: 1766318618924
+              isPrivate: false
+              description: ""
+              sortKey: -1766276806171
+            method: GET
+            body:
+              mimeType: application/json
+              text: |
+                	{"id": "69474aa9b7a79c07f4bfd620"}
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/12.2.0
+                description: ""
+                disabled: false
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+              prefix: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.host }}/{{ _.contextPath }}/{{ _.awid }}/shoppingListItem/update"
+            name: shoppingListItem/update
+            meta:
+              id: req_252ee20dc1ab493f8f569766fa40c1b7
+              created: 1766278079744
+              modified: 1766329522142
+              isPrivate: false
+              description: ""
+              sortKey: -1766276806196
+            method: POST
+            body:
+              mimeType: application/json
+              text: |
+                {
+                "id": "694749443439f911fbaaeff4",
+                "toBuy": true
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/12.2.0
+                description: ""
+                disabled: false
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+              prefix: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.host }}/{{ _.contextPath }}/{{ _.awid }}/shoppingListItem/delete"
+            name: shoppingListItem/delete
+            meta:
+              id: req_3e99170133cc422b9093851d0949cfae
+              created: 1766278322787
+              modified: 1766329500757
+              isPrivate: false
+              description: ""
+              sortKey: -1766276806208.5
+            method: POST
+            body:
+              mimeType: application/json
+              text: |
+                {
+                "id": "6947493c3439f911fbaaeff0"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/12.2.0
+                description: ""
+                disabled: false
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+              prefix: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.host }}/{{ _.contextPath }}/{{ _.awid }}/shoppingListItem/list"
+            name: shoppingListItem/list
+            meta:
+              id: req_9c5a6bb1effe4bbeb0c3e364d699047a
+              created: 1766279351251
+              modified: 1766329473671
+              isPrivate: false
+              description: ""
+              sortKey: -1766276806214.75
+            method: GET
+            body:
+              mimeType: application/json
+              text: |
+                {
+                "shoppingListId": "6947313d4837bde755c2ca59"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/12.2.0
+                description: ""
+                disabled: false
+            authentication:
+              type: bearer
+              token: "{{ token  }}"
+              prefix: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_db33878b9f04492abc267fbcf19f1b27
+    created: 1549535556198
+    modified: 1549535556198
+environments:
+  name: New Environment
+  meta:
+    id: env_644c6493b0a9456abf8bf469b6ca33e4
+    created: 1549535556151
+    modified: 1766257488311
+    isPrivate: false
+  data:
+    contextPath: uu-shoppinglist-maing02
+    token: "{% response 'body', 'req_a0535b1b604b40f8a7256bf3a3a0f7bf',
+      'b64::JC5pZF90b2tlbg==::46b', 'when-expired', 1800 %}"
+  subEnvironments:
+    - name: localhost
+      meta:
+        id: env_975f46f0433f4f7296835a896ec4c484
+        created: 1549535585354
+        modified: 1766257091569
+        isPrivate: false
+        sortKey: 2
+      data:
+        asid: "11111111111111111111111111111111"
+        awid: "22222222222222222222222222222222"
+        awidLicenseOwner: 7534-7888-9403-0000
+        oidc: https://uuapp-dev.plus4u.net/uu-oidc-maing02/eca71064ecce44b0a25ce940eb8f053d/oidc
+        host: http://localhost:8080
+        accessCode1: b$c#Xb2HJ!51YUFVEZ36cgd%8h_bTdEu
+        accessCode2: shc6AfgF27_-97!4TL@vbkFZJ7VQ#Ycq
+      color: "#7d69cb"
+    - name: uuCloud - development
+      meta:
+        id: env_31070254b8724c469e50d243066b95a8
+        created: 1549535587834
+        modified: 1594393485469
+        isPrivate: false
+        sortKey: 1
+      data:
+        asid: <asid>
+        awid: <awid>
+        awidLicenseOwner: 1-1
+        host: https://uuapp.plus4u.net
+      color: "#ff8040"
+    - name: uuCloud - production
+      meta:
+        id: env_969baaa55b2348fa80f3a979386f5f2c
+        created: 1594392762769
+        modified: 1594393480595
+        isPrivate: false
+        sortKey: 0
+      data:
+        asid: <asid>
+        awid: <awid>
+        awidLicenseOwner: 1-1
+        host: https://uuapp.plus4u.net
+      color: "#008040"

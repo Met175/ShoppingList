@@ -3,23 +3,22 @@
 const ShoppinglistMainUseCaseError = require("./shoppinglist-main-use-case-error.js");
 const SHOPPING_LIST_ITEM_ERROR_PREFIX = `${ShoppinglistMainUseCaseError.ERROR_PREFIX}shoppingListItem/`;
 
-
-
 const Create = {
   UC_CODE: `${SHOPPING_LIST_ITEM_ERROR_PREFIX}create/`,
   InvalidDtoIn: class extends ShoppinglistMainUseCaseError {
     constructor() {
       super(...arguments);
       this.code = `${Create.UC_CODE}invalidDtoIn`;
-      this.message = `DtoIn is not valid.`
+      this.message = `DtoIn is not valid.`;
     }
   },
   ShoppingListDoesNotExist: class extends ShoppinglistMainUseCaseError {
     constructor() {
       super(...arguments);
       this.code = `${Create.UC_CODE}shoppingListDoesNotExist`;
-      this.message = `Shopping list does not exist.`
-    }}
+      this.message = `Shopping list does not exist.`;
+    }
+  },
 };
 
 const Update = {
@@ -38,7 +37,7 @@ const Update = {
       this.code = `${Update.UC_CODE}shoppingListItemDoesNotExist`;
       this.message = "Shopping list item does not exist.";
     }
-  }
+  },
 };
 
 const Delete = {
@@ -57,19 +56,26 @@ const Delete = {
       this.code = `${Delete.UC_CODE}shoppingListItemDoesNotExist`;
       this.message = "Shopping list item does not exist.";
     }
-  }
+  },
+  FailedToDelete: class extends ShoppinglistMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Delete.UC_CODE}failedToDelete`;
+      this.message = `Failed to delete item.`;
+    }
+  },
 };
 
 const List = {
-    UC_CODE: `${SHOPPING_LIST_ITEM_ERROR_PREFIX}list/`,
-    InvalidDtoIn: class extends ShoppinglistMainUseCaseError {
-      constructor() {
-        super(...arguments);
-        this.code = `${List.UC_CODE}invalidDtoIn`;
-        this.message = "DtoIn is not valid.";
-      }
+  UC_CODE: `${SHOPPING_LIST_ITEM_ERROR_PREFIX}list/`,
+  InvalidDtoIn: class extends ShoppinglistMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${List.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
     }
-  };
+  },
+};
 
 const Get = {
   UC_CODE: `${SHOPPING_LIST_ITEM_ERROR_PREFIX}get/`,
@@ -87,7 +93,7 @@ const Get = {
       this.code = `${Get.UC_CODE}shoppingListItemDoesNotExist`;
       this.message = "Shopping list item does not exist.";
     }
-  }
+  },
 };
 
 module.exports = {

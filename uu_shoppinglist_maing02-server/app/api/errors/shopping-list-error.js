@@ -48,6 +48,13 @@ const Delete = {
       this.message = `Shopping list does not exist.`;
     }
   },
+  FailedToDelete: class extends ShoppinglistMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Delete.UC_CODE}failedToDelete`;
+      this.message = `Failed to delete shopping list.`;
+    }
+  },
 };
 
 const List = {

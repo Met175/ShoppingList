@@ -49,18 +49,6 @@
         "sysStateList": ["active"],
         "profileList": ["Authorities", "Executives"]
       },
-      "shoppingList/addMember": {
-        "sysStateList": ["active"],
-        "profileList": ["Executives"]
-      },
-      "shoppingList/removeMember": {
-        "sysStateList": ["active"],
-        "profileList": ["Executives"]
-      },
-      "shoppingList/listMember": {
-        "sysStateList": ["active"],
-        "profileList": ["Authorities", "Executives"]
-      },
       "shoppingListItem/create": {
         "sysStateList": ["active"],
         "profileList": ["Authorities", "Executives"]

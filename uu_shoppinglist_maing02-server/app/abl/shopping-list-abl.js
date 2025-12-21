@@ -93,6 +93,9 @@ class ShoppingListAbl {
     if (!deletedList) {
       deleted = "Success";
     }
+    if (deletedList) {
+      throw new Errors.Delete.FailedToDelete({ id: dtoIn.id });
+    }
     return { uuAppErrorMap, deleted };
   }
 
