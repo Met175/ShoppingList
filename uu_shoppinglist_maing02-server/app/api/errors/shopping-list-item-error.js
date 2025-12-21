@@ -32,14 +32,6 @@ const Update = {
     }
   },
 
-  ShoppingListDoesNotExist: class extends ShoppinglistMainUseCaseError {
-    constructor() {
-      super(...arguments);
-      this.code = `${Update.UC_CODE}shoppingListDoesNotExist`;
-      this.message = "Shopping list does not exist.";
-    }
-  },
-
   ShoppingListItemDoesNotExist: class extends ShoppinglistMainUseCaseError {
     constructor() {
       super(...arguments);

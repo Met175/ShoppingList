@@ -56,21 +56,6 @@
         "httpMethod": "GET",
         "type": "CMD"
       },
-      "shoppingList/addMember": {
-        "realization": "api/controllers/ShoppingListController.addMember",
-        "httpMethod": "POST",
-        "type": "CMD"
-      },
-      "shoppingList/removeMember": {
-        "realization": "api/controllers/ShoppingListController.removeMember",
-        "httpMethod": "POST",
-        "type": "CMD"
-      },
-      "shoppingList/listMember": {
-        "realization": "api/controllers/ShoppingListController.listMember",
-        "httpMethod": "GET",
-        "type": "CMD"
-      },
       "shoppingListItem/create": {
         "realization": "api/controllers/ShoppingListItemController.create",
         "httpMethod": "POST",

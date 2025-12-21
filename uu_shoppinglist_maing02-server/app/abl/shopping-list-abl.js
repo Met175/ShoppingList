@@ -10,10 +10,10 @@ const WARNINGS = {
     code: `${Errors.Create.UC_CODE}unsupportedKeys`,
   },
   shoppingListUpdateDtoInType: {
-    code: `${Errors.Create.UC_CODE}unsupportedKeys`,
+    code: `${Errors.Update.UC_CODE}unsupportedKeys`,
   },
   shoppingListDeleteDtoInType: {
-    code: `${Errors.Create.UC_CODE}unsupportedKeys`,
+    code: `${Errors.Delete.UC_CODE}unsupportedKeys`,
   },
   shoppingListGetDtoInType: {
     code: `${Errors.Get.UC_CODE}unsupportedKeys`,
@@ -21,101 +21,34 @@ const WARNINGS = {
   shoppingListListDtoInType: {
     code: `${Errors.List.UC_CODE}unsupportedKeys`,
   },
-  shoppingListAddMemberDtoInType: {
-    code: `${Errors.AddMember.UC_CODE}unsupportedKeys`,
-  },
-  shoppingListRemoveMemberDtoInType: {
-    code: `${Errors.RemoveMember.UC_CODE}unsupportedKeys`,
-  },
-  shoppingListListMemberDtoInType: {
-    code: `${Errors.ListMember.UC_CODE}unsupportedKeys`,
-  },
-
 };
 
 class ShoppingListAbl {
-
   constructor() {
     this.validator = Validator.load();
     this.dao = DaoFactory.getDao("shoppingList");
   }
 
-  async listMember(awid, dtoIn, session) {
+  async get(awid, dtoIn) {
     let uuAppErrorMap = {};
 
-    const validationResult = this.validator.validate("shoppingListListMemberDtoInType", dtoIn);
+    const validationResult = this.validator.validate("shoppingListGetDtoInType", dtoIn);
     uuAppErrorMap = ValidationHelper.processValidationResult(
       dtoIn,
       validationResult,
-      WARNINGS.shoppingListListMemberDtoInType.code,
-      Errors.ListMember.InvalidDtoIn
-    );
-
-    const shoppingList = await this.dao.get(awid, dtoIn.id);
-    if (!shoppingList) {
-      throw new Errors.ListMember.ShoppingListDoesNotExist();
-    }
-
-  return {uuAppErrorMap};
-  }
-
-  async removeMember(awid, dtoIn, session) {
-    let uuAppErrorMap = {};
-
-    const validationResult = this.validator.validate("shoppingListRemoveMemberDtoInType", dtoIn);
-    uuAppErrorMap = ValidationHelper.processValidationResult(
-      dtoIn,
-      validationResult,
-      WARNINGS.shoppingListRemoveMemberDtoInType.code,
-      Errors.RemoveMember.InvalidDtoIn
+      WARNINGS.shoppingListGetDtoInType.code,
+      Errors.Get.InvalidDtoIn,
     );
 
     let shoppingList = await this.dao.get(awid, dtoIn.id);
     if (!shoppingList) {
-      throw new Errors.RemoveMember.ShoppingListDoesNotExist();
-    }
-    return {uuAppErrorMap};
-  }
-
-  async addMember(awid, dtoIn, session) {
-    let uuAppErrorMap = {};
-
-    const validationResult = this.validator.validate("shoppingListAddMemberDtoInType", dtoIn);
-    uuAppErrorMap = ValidationHelper.processValidationResult(
-      dtoIn,
-      validationResult,
-      WARNINGS.shoppingListAddMemberDtoInType.code,
-      Errors.AddMember.InvalidDtoIn
-    );
-
-    let shoppingList = await this.dao.get(awid, dtoIn.id);
-    if (!shoppingList) {
-      throw new Errors.AddMember.ShoppingListDoesNotExist();
+      throw new Errors.Get.ShoppingListDoesNotExist({ id: dtoIn.id });
     }
 
-    return {uuAppErrorMap};
+    return { ...shoppingList, uuAppErrorMap };
   }
 
-  async get(awid, dtoIn, session) {
-      let uuAppErrorMap = {};
-
-      const validationResult = this.validator.validate("shoppingListGetDtoInType", dtoIn);
-      uuAppErrorMap = ValidationHelper.processValidationResult(
-        dtoIn,
-        validationResult,
-        WARNINGS.shoppingListGetDtoInType.code,
-        Errors.Get.InvalidDtoIn
-      );
-
-      let shoppingList = await this.dao.get(awid, dtoIn.id);
-      if (!shoppingList) {
-        throw new Errors.Get.ShoppingListDoesNotExist();
-      }
-
-      return { ...shoppingList, uuAppErrorMap };
-  }
-
-  async list(awid, dtoIn, session) {
+  async list(awid, dtoIn) {
     let uuAppErrorMap = {};
 
     const validationResult = this.validator.validate("shoppingListListDtoInType", dtoIn);
@@ -123,69 +56,85 @@ class ShoppingListAbl {
       dtoIn,
       validationResult,
       WARNINGS.shoppingListListDtoInType.code,
-      Errors.AddMember.InvalidDtoIn
+      Errors.List.InvalidDtoIn,
     );
 
     if (!dtoIn.pageInfo) {
-      dtonIn.pageInfo = {
+      dtoIn.pageInfo = {
         pageIndex: 0,
-        pageSize: 100
+        pageSize: 100,
       };
     }
+    if (!dtoIn.sort) {
+      dtoIn.sort = [{ name: "asc"}];
+      }
 
-    const listResult = await this.dao.list(awid, dtoIn, dtoIn.pageInfo)
-    return {itemList: listResult.itemList, pageInfo: listResult.pageInfo, uuAppErrorMap};
+    const listResult = await this.dao.list(awid, dtoIn, dtoIn.pageInfo, dtoIn.sort);
+    return { itemList: listResult.itemList, pageInfo: listResult.pageInfo, uuAppErrorMap };
   }
 
-  async delete(awid, dtoIn, session) {
-    let uuAppErrorMap = {}
+  async delete(awid, dtoIn) {
+    let uuAppErrorMap = {};
     const validationResult = this.validator.validate("shoppingListDeleteDtoInType", dtoIn);
     uuAppErrorMap = ValidationHelper.processValidationResult(
       dtoIn,
       validationResult,
       WARNINGS.shoppingListDeleteDtoInType?.code,
-      Errors.Create.InvalidDtoIn
-    )
-    let shoppingList = await this.dao.delete(awid, dtoIn.id);
+      Errors.Delete.InvalidDtoIn,
+    );
+    let shoppingList = await this.dao.get(awid, dtoIn.id);
     if (!shoppingList) {
-      throw new Errors.Delete.ShoppingListDoesNotExist();
+      throw new Errors.Delete.ShoppingListDoesNotExist({ id: dtoIn.id });
     }
+    await this.dao.delete(awid, dtoIn.id);
 
-    return {uuAppErrorMap};
+    let deleted = ``;
+    const deletedList = await this.dao.get(awid, dtoIn.id);
+    if (!deletedList) {
+      deleted = "Success";
+    }
+    return { uuAppErrorMap, deleted };
   }
 
-  async update(awid, dtoIn, session) {
-    let uuAppErrorMap = {}
+  async update(awid, dtoIn) {
+    let uuAppErrorMap = {};
     const validationResult = this.validator.validate("shoppingListUpdateDtoInType", dtoIn);
     uuAppErrorMap = ValidationHelper.processValidationResult(
       dtoIn,
       validationResult,
       WARNINGS.shoppingListUpdateDtoInType?.code,
-      Errors.Create.InvalidDtoIn
-    )
-    let shoppingList = await this.dao.update(awid, dtoIn.id);
+      Errors.Update.InvalidDtoIn,
+    );
+    let shoppingList = await this.dao.get(awid, dtoIn.id);
     if (!shoppingList) {
-      throw new Errors.Update.ShoppingListDoesNotExist();
+      throw new Errors.Update.ShoppingListDoesNotExist({ id: dtoIn.id });
     }
+    let updatedShoppingList = Object.assign(shoppingList, dtoIn);
+    await this.dao.update(updatedShoppingList);
 
-    return {uuAppErrorMap};
-
+    return { uuAppErrorMap, shoppingList: updatedShoppingList };
   }
 
   async create(awid, dtoIn, session) {
-    let uuAppErrorMap = {}
+    let uuAppErrorMap = {};
     const validationResult = this.validator.validate("shoppingListCreateDtoInType", dtoIn);
     uuAppErrorMap = ValidationHelper.processValidationResult(
       dtoIn,
       validationResult,
       WARNINGS.shoppingListCreateDtoInType?.code,
-      Errors.Create.InvalidDtoIn
-    )
-    const shoppingList = await this.dao.create({ awid, ...dtoIn });
+      Errors.Create.InvalidDtoIn,
+    );
+    let shoppingList = {
+      awid,
+      ...dtoIn,
+      ownerUuId: session.getIdentity().getUuIdentity(),
+      active: true,
+      members: []
+    };
+    shoppingList = await this.dao.create(shoppingList);
 
     return { ...shoppingList, uuAppErrorMap };
   }
-
 }
 
 module.exports = new ShoppingListAbl();

@@ -1,11 +1,14 @@
 const shoppingListCreateDtoInType = shape({
-  title: string(1, 20).isRequired()
+  title: string(1, 20).isRequired(),
+  members: array(uuIdentity(), 0, 10)
+
 });
 
 const shoppingListUpdateDtoInType = shape({
   id: id().isRequired(),
   title: string(1, 20),
-  active: boolean()
+  active: boolean(),
+  members: array(uuIdentity(), 0, 10)
 });
 
 const shoppingListDeleteDtoInType = shape({
@@ -16,25 +19,14 @@ const shoppingListGetDtoInType = shape({
 });
 const shoppingListListDtoInType = shape({
   idList: array(id(), 0, 10),
+  title: string(1, 20),
   active: boolean(),
   pageInfo: shape({
-    pageIndex: integer(0, null),
-    pageSize: integer(1, 100)
+    pageIndex: integer(),
+    pageSize: integer()
   }),
+  sortBy: oneOf(["title", "createTs"]),
+  order: oneOf(["asc", "desc"]),
+  ownerUuId : uuIdentity(),
   memberIdList: array(uuIdentity(), 0, 10)
-});
-
-
-const shoppingListAddMemberDtoInType = shape({
-  id: id().isRequired(),
-  member: array(uuIdentity()).isRequired()
-});
-
-const shoppingListRemoveMemberDtoInType = shape({
-  id: id().isRequired(),
-  member: array(uuIdentity()).isRequired()
-});
-
-const shoppingListListMemberDtoInType = shape({
-  id: id().isRequired()
 });

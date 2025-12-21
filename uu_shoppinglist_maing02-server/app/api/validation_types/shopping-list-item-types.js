@@ -7,7 +7,6 @@ const shoppingListItemUpdateDtoInType = shape({
   id: id().isRequired(),
   name: string(1, 20),
   toBuy: boolean(),
-  shoppingListId: id().isRequired()
 });
 
 const shoppingListItemListDtoInType = shape({
@@ -15,9 +14,11 @@ const shoppingListItemListDtoInType = shape({
   toBuy: boolean(),
   shoppingListId: id().isRequired(),
   pageInfo: shape({
-    pageIndex: integer(0, null),
-    pageSize: integer(1, 100)
-  })
+    pageIndex: integer(),
+    pageSize: integer()
+  }),
+  sortBy: oneOf(["name", "createTs"]),
+  order: oneOf(["asc", "desc"]),
 });
 
 const shoppingListItemDeleteDtoInType = shape({

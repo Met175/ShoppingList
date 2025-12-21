@@ -20,36 +20,36 @@ const WARNINGS = {
   },
   shoppingListItemListDtoInType: {
     code: `${Errors.List.UC_CODE}unsupportedKeys`,
-  }
+  },
 };
 
 class ShoppingListItemAbl {
-
   constructor() {
     this.validator = Validator.load();
-    this.dao = DaoFactory.getDao("shoppingListItem");
+    this.shoppingListItemDao = DaoFactory.getDao("shoppingListItem");
+    this.shoppingListDao = DaoFactory.getDao("shoppingList");
   }
 
-  async get(awid, dtoIn, session) {
-      let uuAppErrorMap = {};
+  async get(awid, dtoIn) {
+    let uuAppErrorMap = {};
 
-      const validationResult = this.validator.validate("shoppingListItemGetDtoInType", dtoIn);
-      uuAppErrorMap = ValidationHelper.processValidationResult(
-        dtoIn,
-        validationResult,
-        WARNINGS.shoppingListItemGetDtoInType?.code,
-        Errors.Get.InvalidDtoIn
-      );
+    const validationResult = this.validator.validate("shoppingListItemGetDtoInType", dtoIn);
+    uuAppErrorMap = ValidationHelper.processValidationResult(
+      dtoIn,
+      validationResult,
+      WARNINGS.shoppingListItemGetDtoInType?.code,
+      Errors.Get.InvalidDtoIn,
+    );
 
-      const item = await this.dao.get(awid, dtoIn.id);
-      if (!item) {
-        throw new Errors.Get.ShoppingListItemDoesNotExist();
-      }
-
-      return { ...item, uuAppErrorMap };
+    const item = await this.shoppingListItemDao.get(awid, dtoIn.id);
+    if (!item) {
+      throw new Errors.Get.ShoppingListItemDoesNotExist({ id: dtoIn.id });
     }
 
-  async list(awid, dtoIn, session) {
+    return { ...item, uuAppErrorMap };
+  }
+
+  async list(awid, dtoIn) {
     let uuAppErrorMap = {};
 
     const validationResult = this.validator.validate("shoppingListItemListDtoInType", dtoIn);
@@ -57,21 +57,24 @@ class ShoppingListItemAbl {
       dtoIn,
       validationResult,
       WARNINGS.shoppingListItemListDtoInType?.code,
-      Errors.List.InvalidDtoIn
+      Errors.List.InvalidDtoIn,
     );
 
     if (!dtoIn.pageInfo) {
-      dtonIn.pageInfo = {
+      dtoIn.pageInfo = {
         pageIndex: 0,
-        pageSize: 100
+        pageSize: 100,
       };
     }
+    if (!dtoIn.sort) {
+      dtoIn.sort = [{ name: "asc" }];
+    }
 
-    const listResult = await this.dao.list(awid, dtoIn, dtoIn.pageInfo)
-    return {itemList: listResult.itemList, pageInfo: listResult.pageInfo, uuAppErrorMap};
+    const listResult = await this.shoppingListItemDao.list(awid, dtoIn, dtoIn.pageInfo, dtoIn.sort);
+    return { itemList: listResult.itemList, pageInfo: listResult.pageInfo, uuAppErrorMap };
   }
 
-  async delete(awid, dtoIn, session) {
+  async delete(awid, dtoIn) {
     let uuAppErrorMap = {};
 
     const validationResult = this.validator.validate("shoppingListItemDeleteDtoInType", dtoIn);
@@ -79,18 +82,24 @@ class ShoppingListItemAbl {
       dtoIn,
       validationResult,
       WARNINGS.shoppingListItemDeleteDtoInType?.code,
-      Errors.Delete.InvalidDtoIn
+      Errors.Delete.InvalidDtoIn,
     );
-
-    let item = await this.dao.delete(awid, dtoIn.id);
+    let item = await this.shoppingListItemDao.get(awid, dtoIn.id);
     if (!item) {
-      throw new Errors.Delete.ShoppingListItemDoesNotExist();
+      throw new Errors.Delete.ShoppingListItemDoesNotExist({ id: dtoIn.id });
+    }
+    await this.shoppingListItemDao.delete(awid, dtoIn.id);
+
+    let deleted = ``;
+    const deletedItem = await this.shoppingListItemDao.get(awid, dtoIn.id);
+    if (!deletedItem) {
+      deleted = "Success";
     }
 
-    return { uuAppErrorMap };
+    return { uuAppErrorMap, deleted };
   }
 
-  async update(awid, dtoIn, session) {
+  async update(awid, dtoIn) {
     let uuAppErrorMap = {};
 
     const validationResult = this.validator.validate("shoppingListItemUpdateDtoInType", dtoIn);
@@ -98,27 +107,20 @@ class ShoppingListItemAbl {
       dtoIn,
       validationResult,
       WARNINGS.shoppingListItemUpdateDtoInType?.code,
-      Errors.Update.InvalidDtoIn
+      Errors.Update.InvalidDtoIn,
     );
 
-    let item = await this.dao.get(awid, dtoIn.id);
+    let item = await this.shoppingListItemDao.get(awid, dtoIn.id);
     if (!item) {
-      throw new Errors.Update.ShoppingListItemDoesNotExist();
+      throw new Errors.Update.ShoppingListItemDoesNotExist({ id: dtoIn.id });
     }
 
-    if (dtoIn.shoppingListId) {
-      const list = await this.shoppingListDao.get(awid, dtoIn.shoppingListId);
-      if (!list) {
-        throw new Errors.Update.ShoppingListDoesNotExist();
-      }
-    }
-
-    const updated = await this.dao.update({ ...item, ...dtoIn });
+    const updated = await this.shoppingListItemDao.update({ ...item, ...dtoIn });
 
     return { ...updated, uuAppErrorMap };
   }
 
-  async create(awid, dtoIn, session) {
+  async create(awid, dtoIn) {
     let uuAppErrorMap = {};
 
     const validationResult = this.validator.validate("shoppingListItemCreateDtoInType", dtoIn);
@@ -126,23 +128,22 @@ class ShoppingListItemAbl {
       dtoIn,
       validationResult,
       WARNINGS.shoppingListItemCreateDtoInType?.code,
-      Errors.Create.InvalidDtoIn
+      Errors.Create.InvalidDtoIn,
     );
 
-    const list = await this.shoppingListDao.get(awid, dtoIn.shoppingListId);
-    if (!list) {
-      throw new Errors.Create.ShoppingListDoesNotExist();
+    let shoppingList = await this.shoppingListDao.get(awid, dtoIn.shoppingListId);
+    if (!shoppingList) {
+      throw new Errors.Create.ShoppingListDoesNotExist({ id: dtoIn.shoppingListId });
     }
 
-    const item = await this.dao.create({
+    const item = await this.shoppingListItemDao.create({
       awid,
-      ...dtoIn
+      ...dtoIn,
+      toBuy: true,
     });
 
     return { ...item, uuAppErrorMap };
   }
-
-
 }
 
 module.exports = new ShoppingListItemAbl();

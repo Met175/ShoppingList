@@ -31,11 +31,11 @@
       },
       "shoppingList/create": {
         "sysStateList": ["active"],
-        "profileList": ["Executive"]
+        "profileList": ["Executives"]
       },
       "shoppingList/update": {
         "sysStateList": ["active"],
-        "profileList": ["Executive"]
+        "profileList": ["Executives"]
       },
       "shoppingList/delete": {
         "sysStateList": ["active"],
@@ -43,43 +43,43 @@
       },
       "shoppingList/list": {
         "sysStateList": ["active"],
-        "profileList": ["Authorities", "Executive"]
+        "profileList": ["Authorities", "Executives"]
       },
       "shoppingList/get": {
         "sysStateList": ["active"],
-        "profileList": ["Authorities", "Executive"]
+        "profileList": ["Authorities", "Executives"]
       },
       "shoppingList/addMember": {
         "sysStateList": ["active"],
-        "profileList": ["Executive"]
+        "profileList": ["Executives"]
       },
       "shoppingList/removeMember": {
         "sysStateList": ["active"],
-        "profileList": ["Executive"]
+        "profileList": ["Executives"]
       },
       "shoppingList/listMember": {
         "sysStateList": ["active"],
-        "profileList": ["Authorities", "Executive"]
+        "profileList": ["Authorities", "Executives"]
       },
       "shoppingListItem/create": {
         "sysStateList": ["active"],
-        "profileList": ["Authorities", "Executive"]
+        "profileList": ["Authorities", "Executives"]
       },
       "shoppingListItem/update": {
         "sysStateList": ["active"],
-        "profileList": ["Authorities", "Executive"]
+        "profileList": ["Authorities", "Executives"]
       },
       "shoppingListItem/delete": {
         "sysStateList": ["active"],
-        "profileList": ["Authorities", "Executive"]
+        "profileList": ["Authorities", "Executives"]
       },
       "shoppingListItem/list": {
         "sysStateList": ["active"],
-        "profileList": ["Authorities", "Executive"]
+        "profileList": ["Authorities", "Executives"]
       },
       "shoppingListItem/get": {
         "sysStateList": ["active"],
-        "profileList": ["Authorities", "Executive"]
+        "profileList": ["Authorities", "Executives"]
       }
     }
   }

@@ -9,9 +9,9 @@ const Create = {
     constructor() {
       super(...arguments);
       this.code = `${Create.UC_CODE}invalidDtoIn`;
-      this.message = `DtoIn is not valid.`
+      this.message = `DtoIn is not valid.`;
     }
-  }
+  },
 };
 
 const Update = {
@@ -19,16 +19,17 @@ const Update = {
   InvalidDtoIn: class extends ShoppinglistMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${Create.UC_CODE}invalidDtoIn`;
-      this.message = `DtoIn is not valid.`
+      this.code = `${Update.UC_CODE}invalidDtoIn`;
+      this.message = `DtoIn is not valid.`;
     }
   },
   ShoppingListDoesNotExist: class extends ShoppinglistMainUseCaseError {
     constructor() {
-  super(...arguments);
-  this.code = `${Create.UC_CODE}shoppingListDoesNotExist`;
-  this.message = `Shopping list does not exist.`
-    }}
+      super(...arguments);
+      this.code = `${Update.UC_CODE}shoppingListDoesNotExist`;
+      this.message = `Shopping list does not exist.`;
+    }
+  },
 };
 
 const Delete = {
@@ -36,16 +37,17 @@ const Delete = {
   InvalidDtoIn: class extends ShoppinglistMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${Create.UC_CODE}invalidDtoIn`;
-      this.message = `DtoIn is not valid.`
+      this.code = `${Delete.UC_CODE}invalidDtoIn`;
+      this.message = `DtoIn is not valid.`;
     }
   },
   ShoppingListDoesNotExist: class extends ShoppinglistMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${Create.UC_CODE}shoppingListDoesNotExist`;
-      this.message = `Shopping list does not exist.`
-    }}
+      this.code = `${Delete.UC_CODE}shoppingListDoesNotExist`;
+      this.message = `Shopping list does not exist.`;
+    }
+  },
 };
 
 const List = {
@@ -57,9 +59,8 @@ const List = {
       this.code = `${List.UC_CODE}invalidDtoIn`;
       this.message = "DtoIn is not valid.";
     }
-  }
+  },
 };
-
 
 const Get = {
   UC_CODE: `${SHOPPING_LIST_ERROR_PREFIX}get/`,
@@ -76,70 +77,13 @@ const Get = {
       this.code = `${Get.UC_CODE}shoppingListDoesNotExist`;
       this.message = `Shopping list does not exist.`;
     }
-  }
-};
-
-const AddMember = {
-  UC_CODE: `${SHOPPING_LIST_ERROR_PREFIX}addMember/`,
-  InvalidDtoIn: class extends ShoppinglistMainUseCaseError {
-    constructor() {
-      super(...arguments);
-      this.code = `${AddMember.UC_CODE}invalidDtoIn`;
-      this.message = `DtoIn is not valid.`;
-    }
   },
-  ShoppingListDoesNotExist: class extends ShoppinglistMainUseCaseError {
-    constructor() {
-      super(...arguments);
-      this.code = `${AddMember.UC_CODE}shoppingListDoesNotExist`;
-      this.message = `Shopping list does not exist.`;
-    }
-  }
-};
-
-const RemoveMember = {
-  UC_CODE: `${SHOPPING_LIST_ERROR_PREFIX}removeMember/`,
-  InvalidDtoIn: class extends ShoppinglistMainUseCaseError {
-    constructor() {
-      super(...arguments);
-      this.code = `${RemoveMember.UC_CODE}invalidDtoIn`;
-      this.message = `DtoIn is not valid.`;
-    }
-  },
-  ShoppingListDoesNotExist: class extends ShoppinglistMainUseCaseError {
-    constructor() {
-      super(...arguments);
-      this.code = `${RemoveMember.UC_CODE}shoppingListDoesNotExist`;
-      this.message = `Shopping list does not exist.`;
-    }
-  }
-};
-
-const ListMember = {
-  UC_CODE: `${SHOPPING_LIST_ERROR_PREFIX}listMember/`,
-  InvalidDtoIn: class extends ShoppinglistMainUseCaseError {
-    constructor() {
-      super(...arguments);
-      this.code = `${ListMember.UC_CODE}invalidDtoIn`;
-      this.message = `DtoIn is not valid.`;
-    }
-  },
-  ShoppingListDoesNotExist: class extends ShoppinglistMainUseCaseError {
-    constructor() {
-      super(...arguments);
-      this.code = `${ListMember.UC_CODE}shoppingListDoesNotExist`;
-      this.message = `Shopping list does not exist.`;
-    }
-  }
 };
 
 module.exports = {
-  ListMember,
-  RemoveMember,
-  AddMember,
   Get,
   List,
   Delete,
   Update,
-  Create
+  Create,
 };

@@ -3,18 +3,6 @@ const ShoppingListAbl = require("../../abl/shopping-list-abl.js");
 
 class ShoppingListController {
 
-  listMember(ucEnv) {
-    return ShoppingListAbl.listMember(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession());
-  }
-
-  removeMember(ucEnv) {
-    return ShoppingListAbl.removeMember(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession());
-  }
-
-  addMember(ucEnv) {
-    return ShoppingListAbl.addMember(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession());
-  }
-
   get(ucEnv) {
     return ShoppingListAbl.get(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession());
   }
