@@ -1,5 +1,5 @@
 //@@viewOn:imports
-import { createVisualComponent, useState } from "uu5g05";
+import { createVisualComponent, Lsi, useState } from "uu5g05";
 import Plus4U5App from "uu_plus4u5g02-app";
 import Uu5Elements from "uu5g05-elements";
 import Uu5Forms from "uu5g05-forms";
@@ -40,13 +40,12 @@ const DeleteListDialog = createVisualComponent({
       <Uu5Elements.Dialog
         open = {open}
         onClose = {onClose}
-        actionList={[{ children: "Delete" , colorScheme: "negative", significance: "highlighted",
+        actionList={[{ children: <Lsi lsi={{ cs: "Smazat", en: "Delete" }} /> , colorScheme: "negative", significance: "highlighted",
           onClick: () => setShoppingLists(shoppingLists.filter((i) => i.id !== shoppingList.id)) },
-          { children: "Cancel" }]}
-        header={`Delete ${shoppingList.name}`}
+          { children: <Lsi lsi={{ cs: "Zrušit", en: "Cancel" }} /> }]}
+        header={<Lsi lsi={{ cs: `Smazat ${shoppingList.name}`, en: `Delete ${shoppingList.name}` }} />}
         icon={<Uu5Elements.Svg code="uugdssvg-svg-delete" />}
-        info={`Do you really want to delete ${shoppingList.name}?`
-        }
+        info={<Lsi lsi={{ cs: `Opravdu chcete smazat ${shoppingList.name}?`, en: `Do you really want to delete ${shoppingList.name}?` }} />}
         actionDirection="horizontal"
       />
 

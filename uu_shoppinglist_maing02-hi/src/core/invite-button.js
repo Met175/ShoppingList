@@ -1,5 +1,5 @@
 //@@viewOn:imports
-import Uu5, { createVisualComponent, useState } from "uu5g05";
+import Uu5, { createVisualComponent, Lsi, useState } from "uu5g05";
 import Uu5Elements from "uu5g05-elements";
 import Config from "./config/config.js";
 import Uu5Forms from "uu5g05-forms";
@@ -48,7 +48,7 @@ const InviteButton = createVisualComponent({
             onClick={() => setInviteModalOpen(true)}
 
         >
-            Invite
+          {<Lsi lsi={{ cs: "Pozvat", en: "Invite" }} />}
           </Uu5Elements.Button>
 
         {inviteModalOpen && (
@@ -58,13 +58,13 @@ const InviteButton = createVisualComponent({
             setInviteModalOpen(false);
           }}
           >
-            <Uu5Elements.Modal open={inviteModalOpen} onClose={() => setInviteModalOpen(false)} header="Invite people" colorScheme="pink"
-              footer={<Uu5Forms.SubmitButton colorScheme="pink" significance="highlighted" >Send Invite</Uu5Forms.SubmitButton>}
+            <Uu5Elements.Modal open={inviteModalOpen} onClose={() => setInviteModalOpen(false)} header={<Lsi lsi={{ cs: "Pozvat Nové Členy", en: "Invite New Members" }} />} colorScheme="pink"
+              footer={<Uu5Forms.SubmitButton colorScheme="pink" significance="highlighted" >{<Lsi lsi={{ cs: "Odeslat Pozvánku", en: "Send Invite" }} />}</Uu5Forms.SubmitButton>}
             >
               <Uu5Forms.Form.View>
-                <Uu5Forms.FormText name="name" label="Name" required />
-                <Uu5Forms.FormText name="email" label="Email" required />
-              </Uu5Forms.Form.View> 
+                <Uu5Forms.FormText name="name" label={<Lsi lsi={{ cs: "Jméno", en: "Name" }} />} required />
+                <Uu5Forms.FormText name="email" label="E-mail" required />
+              </Uu5Forms.Form.View>
             </Uu5Elements.Modal>
           </Uu5Forms.Form.Provider>
         )}

@@ -45,7 +45,7 @@ const ShoppingListMembersForm = createVisualComponent({
           significance="distinct"
           header={
             <Uu5Elements.Text category="interface" segment="title" type="major">
-              Members
+              {<Lsi lsi={{ cs: "Členové", en: "Members" }} />}
             </Uu5Elements.Text>
           }
           headerSeparator={true}

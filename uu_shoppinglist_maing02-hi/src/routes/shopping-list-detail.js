@@ -10,6 +10,7 @@ import ShoppingListMembersForm from "../core/shoppin-list-members-form.js";
 import demoItems from "../../mock/data/demoItems.json";
 import demoMembers from "../../mock/data/demoMembers.json";
 import { useUser } from "../core/user.js";
+import ShoppingListItemsPieChart from "../core/item-pie-chart";
 import importLsi from "../lsi/import-lsi.js";
 //@@viewOff:imports
 
@@ -65,11 +66,12 @@ let ShoppingListDetail = createVisualComponent({
         <RouteBar members={members} setMembers={setMembers} setFilterItems={setFilterItems} user={user} />
         <Uu5Elements.GridTemplate
           contentMap={{
-            sidebar: <ShoppingListMembersForm members={members} setMembers={setMembers} user={user} />,
+            sidebar: <><ShoppingListMembersForm members={members} setMembers={setMembers} user={user} />
+                    <ShoppingListItemsPieChart items={items} filterItems={filterItems} setFilterItems={setFilterItems} user={user} /></>,
             content: <ShoppingListItemsForm items={items} setItems={setItems} filterItems={filterItems} user={user} />,
           }}
           templateAreas={{
-            xs: `header, sidebar, content, footer`,
+            xs: `header, content, sidebar, footer`,
             m: `
         header header header header,
         sidebar content content content,

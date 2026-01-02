@@ -16,7 +16,8 @@
     "uu5g05-forms": "^1.40.1",
     "uu5loaderg01": "^1.7.0",
     "uu5tilesg02": "2.25.0",
-    "uu5tilesg02-elements": "2.25.0"
+    "uu5tilesg02-elements": "2.25.0",
+    "uu5chartsg01": "3.12.0"
   },
   "uuBuildSettings": {
     "externals": {}

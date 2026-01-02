@@ -1,5 +1,5 @@
 //@@viewOn:imports
-import { createVisualComponent, PropTypes, useState } from "uu5g05";
+import { createVisualComponent, Lsi, PropTypes, useState } from "uu5g05";
 import * as Uu5Elements from "uu5g05-elements";
 import Config from "./config/config.js";
 import Uu5TilesElements from "uu5tilesg02-elements";
@@ -39,13 +39,13 @@ const ShoppingListTile = createVisualComponent({
 
     const itemList = [
       {
-        children : "Open",
+        children : <Lsi lsi={{ cs: "Otevřít", en: "Open" }} />,
         href: `/detail`,
       },
       ...(shoppingList.owner === user.name && shoppingList.active
         ? [
           {
-            children: "Archive",
+            children: <Lsi lsi={{ cs: "Archivovat", en: "Archive"}} />,
             onClick: () => handleArchive(shoppingList.id),
           },
         ]
@@ -53,7 +53,7 @@ const ShoppingListTile = createVisualComponent({
       ...(shoppingList.owner === user.name
         ? [
           {
-            children: "Delete",
+            children: <Lsi lsi={{ cs: "Smazat", en: "Delete" }} />,
             onClick: () => setDeleteDialogOpen(true),
           },
         ]
@@ -62,9 +62,21 @@ const ShoppingListTile = createVisualComponent({
     console.log(shoppingList.name);
     console.log(shoppingList.owner);
     console.log(shoppingList.members);
+    console.log(shoppingList);
     return (
       <div>
         <Uu5TilesElements.Tile
+          displayActionList={true}
+          actionList={[
+            {
+            children: (
+              <Uu5Elements.Text category="interface" segment="title" type="micro" colorScheme="neutral" weight="bold">
+                <Lsi lsi={{ cs: "Počet Položek", en: "Items count" }}/>: {shoppingList.items?.length}
+              </Uu5Elements.Text>
+            ),
+              collapsed: false
+            },
+          ]}
           header = {<Uu5Elements.Text category="story" segment="heading" type="h4"> {shoppingList.name} </Uu5Elements.Text>}
           footer = { <Uu5Elements.ButtonGroup itemList={itemList} spacing="8px" /> }
           footerHorizontalAlignment="start"
@@ -72,8 +84,8 @@ const ShoppingListTile = createVisualComponent({
           headerColorScheme="dim"
         >
           <Uu5Elements.Grid>
-            <Uu5Elements.Text> Owner: {shoppingList.owner} </Uu5Elements.Text>
-            <Uu5Elements.Text> Members: {shoppingList.members} </Uu5Elements.Text>
+            <Uu5Elements.Text>{<Lsi lsi={{ cs: "Majitel", en: "Owner" }} />}: {shoppingList.owner} </Uu5Elements.Text>
+            <Uu5Elements.Text>{<Lsi lsi={{ cs: "Členové", en: "Members" }} />}: {shoppingList.members.join(", ")} </Uu5Elements.Text>
           </Uu5Elements.Grid>
         </Uu5TilesElements.Tile>
 

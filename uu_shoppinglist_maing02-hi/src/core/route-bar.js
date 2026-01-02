@@ -7,6 +7,7 @@ import Config from "./config/config.js";
 import InviteButton from "./invite-button.js";
 import { UserSelector } from "./user.js";
 import AddListButton from "./add-list-button.js";
+import DarkModeToggle from "./dark-mode-toggle";
 
 //@@viewOff:imports
 
@@ -56,25 +57,26 @@ const RouteBar = createVisualComponent({
       ...(route.uu5Route === "detail"
         ? [
           {
-            children: "To buy",
+            children: <Lsi lsi={{ cs: "Koupit", en: "To Buy" }} />,
             onClick: () => setFilterItems("toBuy"),
           },
           {
-            children: "Bought",
+            children: <Lsi lsi={{ cs: "Zakoupené", en: "Bought" }} />,
             onClick: () => setFilterItems("bought"),
           },
           {
-            children: "All",
+            children: <Lsi lsi={{ cs: "Vše", en: "All" }} />,
             onClick: () => setFilterItems("all"),
+
           },
         ]
         : [
           {
-            children: "Active",
+            children: <Lsi lsi={{ cs: "Aktivní", en: "Active" }} />,
             onClick: () => setFilterLists("active"),
           },
           {
-            children: "Archived",
+            children: <Lsi lsi={{ cs: "Archivované", en: "Archived" }} />,
             onClick: () => setFilterLists("archived"),
           },
         ])
@@ -82,24 +84,23 @@ const RouteBar = createVisualComponent({
 
     const actionList = [
       ...(route.uu5Route === "detail"
-        ? [
-          {
-            children: <InviteButton members={members} setMembers={setMembers} user={user} />,
-          },
-          {
-            children: <UserSelector/>
-          }
-        ]
+        ? [{
+          children: <InviteButton members={members} setMembers={setMembers} user={user}/>,
+        }]
         : [
          {
             children: <AddListButton shoppingLists={shoppingLists} setShoppingLists={setShoppingLists} user={user} />,
          },
-
-
-          {
-            children: <UserSelector />
-          }
-        ])
+        ]),
+      {
+        children: <Uu5Elements.LanguageSelector languageList={["en", "cs"]} colorScheme="neutral"/>
+      },
+      {
+        children: <UserSelector/>
+      },
+      {
+        children: <DarkModeToggle/>
+      }
 
     ]
 
@@ -107,16 +108,15 @@ const RouteBar = createVisualComponent({
 
     //@@viewOn:render
     return (
-      <div>
         <Plus4U5App.PositionBar
           actionList={actionList}
+          view="short"
 
           colorScheme="pink"
-          view="short"
+
         >
           <Uu5Elements.ActionGroup itemList={itemList} displayType="button" />
         </Plus4U5App.PositionBar>
-      </div>
       //@@viewOff:render
     );
   },

@@ -1,5 +1,5 @@
 //@@viewOn:imports
-import { createVisualComponent, useState } from "uu5g05";
+import { createVisualComponent, Lsi, useState } from "uu5g05";
 import Plus4U5App from "uu_plus4u5g02-app";
 import Uu5Elements from "uu5g05-elements";
 import Uu5Forms from "uu5g05-forms";
@@ -45,7 +45,7 @@ const AddListButton = createVisualComponent({
           icon="uugds-plus"
           onClick={() => setAddListModalOpen(true)}
         >
-          Add List
+          <Lsi lsi={{ cs: "Přidat Seznam", en: "Add List" }} />
         </Uu5Elements.Button>
 
         {addListModalOpen && (
@@ -62,16 +62,16 @@ const AddListButton = createVisualComponent({
             <Uu5Elements.Modal
               open={addListModalOpen}
               onClose={() => setAddListModalOpen(false)}
-              header="Add List"
+              header={<Lsi lsi={{ cs: "Přidat Seznam", en: "Add List" }} />}
               colorScheme="pink"
               footer={
                 <Uu5Forms.SubmitButton colorScheme="pink" significance="highlighted">
-                  Add new list
+                  <Lsi lsi={{ cs: "Přidat Nový Seznam", en: "Add New List" }} />
                 </Uu5Forms.SubmitButton>
               }
             >
               <Uu5Forms.Form.View>
-                <Uu5Forms.FormText name="name" label="Name" required />
+                <Uu5Forms.FormText name="name" label={<Lsi lsi={{ cs: "Název", en: "Name" }} />} required />
               </Uu5Forms.Form.View>
             </Uu5Elements.Modal>
           </Uu5Forms.Form.Provider>

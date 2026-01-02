@@ -1,5 +1,10 @@
 { "itemList": [
-  { "id": 1, "name": "Shopping List 1", "active": true, "owner": "James", "members": ["Amelia", "John"] },
+  { "id": 1, "name": "Shopping List 1", "active": true, "owner": "James", "members": ["Amelia", "John"],
+  "items":[{ "id": 5, "name": "Pasta", "toBuy": true, "listID": "3"  },
+  { "id": 6, "name": "Tomatoes", "toBuy": true, "listID": "3"  },
+  { "id": 7, "name": "Olive Oil", "toBuy": false, "listID": "4"  },
+  { "id": 8, "name": "Bread", "toBuy": true, "listID": "4"  }]
+  },
   { "id": 2, "name": "Shopping List 2", "active": true, "owner": "John", "members": ["Amelia", "James"] },
   { "id": 3, "name": "Shopping List 3", "active": false, "owner": "Amelia", "members": ["Chloe", "James", "John"]},
   { "id": 4, "name": "Shopping List 4", "active": true, "owner": "James", "members": ["Chloe", "John"] }

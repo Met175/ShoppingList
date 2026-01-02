@@ -1,5 +1,5 @@
 //@@viewOn:imports
-import { createVisualComponent, useState } from "uu5g05";
+import { createVisualComponent, Lsi, useState } from "uu5g05";
 import Plus4U5App from "uu_plus4u5g02-app";
 import Uu5Elements from "uu5g05-elements";
 import Uu5Forms from "uu5g05-forms";
@@ -53,16 +53,16 @@ const EditName = createVisualComponent({
             <Uu5Elements.Modal
               open={editNameModalOpen}
               onClose={() => setEditNameModalOpen(false)}
-              header="Edit List Name"
+              header={<Lsi lsi={{ cs: "Upravit Název", en: "Edit List Name" }} />}
               colorScheme="pink"
               footer={
                 <Uu5Forms.SubmitButton colorScheme="pink" significance="highlighted">
-                  Edit
+                  {<Lsi lsi={{ cs: "Upravit", en: "Edit" }} />}
                 </Uu5Forms.SubmitButton>
               }
             >
               <Uu5Forms.Form.View>
-                <Uu5Forms.FormText name="newName" label="New Name" required />
+                <Uu5Forms.FormText name="newName" label={<Lsi lsi={{ cs: "Nový název", en: "New Name" }} />} required />
               </Uu5Forms.Form.View>
             </Uu5Elements.Modal>
           </Uu5Forms.Form.Provider>

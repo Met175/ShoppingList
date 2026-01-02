@@ -69,7 +69,15 @@ const ShoppingListItemsForm = createVisualComponent({
           footer={<AddItemButton items={items} setItems={setItems} />}
         >
           <Uu5Elements.Grid>
-            {filteredItems.map((item) => (
+            {filteredItems
+              .slice()
+              .sort((a, b) => {
+                if (a.toBuy === b.toBuy) {
+                  return a.name.localeCompare(b.name);
+                }
+                return a.toBuy ? -1 : 1; // toBuy items first
+              })
+              .map((item) => (
               <Uu5Elements.ListItem
                 key={item.id}
                 actionList={[
@@ -82,12 +90,17 @@ const ShoppingListItemsForm = createVisualComponent({
                 ]}
               >
 
+                {item.toBuy ? (
                   <Uu5Forms.Checkbox
                     label={item.name}
                     colorScheme="pink"
                     box={false}
                     onChange={() => handleCheckboxChange(item.id)}
                   />
+                ) : (
+                  <Uu5Elements.Box significance="subdued" shape="interactiveElement">{item.name}</Uu5Elements.Box>
+
+                )}
 
               </Uu5Elements.ListItem>
             ))}
