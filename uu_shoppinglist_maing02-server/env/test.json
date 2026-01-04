@@ -6,6 +6,11 @@
     "awidLicenseOwnerList": ["3039-912-8064-0000"]
   },
   "userMap": {
+    "AwidInitiator" : {
+      "accessCode1": "Y5&Cv$yt3rJx26u2P2&r03u9St@2!d5V",
+      "accessCode2": "6YNV1u5G290-J!%83708141q51_!763n",
+      "uuIdentity": "3039-912-8064-0000"
+    },
     "AsidLicenseOwner": {
       "accessCode1": "Y5&Cv$yt3rJx26u2P2&r03u9St@2!d5V",
       "accessCode2": "6YNV1u5G290-J!%83708141q51_!763n",
@@ -21,11 +26,21 @@
       "accessCode2": "6YNV1u5G290-J!%83708141q51_!763n",
       "uuIdentity": "3039-912-8064-0000"
     },
-    "Authorities": {
+    "Executives": {
       "accessCode1": "Y5&Cv$yt3rJx26u2P2&r03u9St@2!d5V",
       "accessCode2": "6YNV1u5G290-J!%83708141q51_!763n",
       "uuIdentity": "3039-912-8064-0000",
-      "profileList": ["Authorities"]
+      "profileList": [
+        "Executives"
+      ]
+    },
+    "Authorities": {
+      "accessCode1": "b$c#Xb2HJ!51YUFVEZ36cgd%8h_bTdEu",
+      "accessCode2": "shc6AfgF27_-97!4TL@vbkFZJ7VQ#Ycq",
+      "uuIdentity": "7534-7888-9403-0000",
+      "profileList": [
+        "Authorities"
+      ]
     }
   },
   "log_level": "FATAL",

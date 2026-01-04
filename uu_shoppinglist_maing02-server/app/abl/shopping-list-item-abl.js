@@ -90,16 +90,7 @@ class ShoppingListItemAbl {
     }
     await this.shoppingListItemDao.delete(awid, dtoIn.id);
 
-    let deleted = ``;
-    const deletedItem = await this.shoppingListItemDao.get(awid, dtoIn.id);
-    if (!deletedItem) {
-      deleted = "Success";
-    }
-    if (deletedItem) {
-      throw new Errors.Delete.FailedToDelete({ id: dtoIn.id });
-    }
-
-    return { uuAppErrorMap, deleted };
+    return { uuAppErrorMap };
   }
 
   async update(awid, dtoIn) {

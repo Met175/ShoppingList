@@ -73,7 +73,7 @@ class ShoppingListAbl {
     return { itemList: listResult.itemList, pageInfo: listResult.pageInfo, uuAppErrorMap };
   }
 
-  async delete(awid, dtoIn) {
+  async delete(awid, dtoIn, session) {
     let uuAppErrorMap = {};
     const validationResult = this.validator.validate("shoppingListDeleteDtoInType", dtoIn);
     uuAppErrorMap = ValidationHelper.processValidationResult(
@@ -86,20 +86,15 @@ class ShoppingListAbl {
     if (!shoppingList) {
       throw new Errors.Delete.ShoppingListDoesNotExist({ id: dtoIn.id });
     }
+    if (shoppingList.ownerUuId !== session.getIdentity().getUuIdentity()) {
+      throw new Errors.Delete.UserDoesNotHavePermission({ id: dtoIn.id})
+    }
     await this.dao.delete(awid, dtoIn.id);
 
-    let deleted = ``;
-    const deletedList = await this.dao.get(awid, dtoIn.id);
-    if (!deletedList) {
-      deleted = "Success";
-    }
-    if (deletedList) {
-      throw new Errors.Delete.FailedToDelete({ id: dtoIn.id });
-    }
-    return { uuAppErrorMap, deleted };
+    return { uuAppErrorMap};
   }
 
-  async update(awid, dtoIn) {
+  async update(awid, dtoIn, session) {
     let uuAppErrorMap = {};
     const validationResult = this.validator.validate("shoppingListUpdateDtoInType", dtoIn);
     uuAppErrorMap = ValidationHelper.processValidationResult(
@@ -112,6 +107,10 @@ class ShoppingListAbl {
     if (!shoppingList) {
       throw new Errors.Update.ShoppingListDoesNotExist({ id: dtoIn.id });
     }
+    if (shoppingList.ownerUuId !== session.getIdentity().getUuIdentity()) {
+      throw new Errors.Update.UserDoesNotHavePermission({ id: dtoIn.id})
+    }
+
     let updatedShoppingList = Object.assign(shoppingList, dtoIn);
     await this.dao.update(updatedShoppingList);
 

@@ -30,6 +30,13 @@ const Update = {
       this.message = `Shopping list does not exist.`;
     }
   },
+  UserDoesNotHavePermission: class extends ShoppinglistMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Update.UC_CODE}userDoesNotHavePermission`;
+      this.message = `User does not have permission to update shopping list.`;
+    }
+  }
 };
 
 const Delete = {
@@ -48,13 +55,13 @@ const Delete = {
       this.message = `Shopping list does not exist.`;
     }
   },
-  FailedToDelete: class extends ShoppinglistMainUseCaseError {
+  UserDoesNotHavePermission: class extends ShoppinglistMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${Delete.UC_CODE}failedToDelete`;
-      this.message = `Failed to delete shopping list.`;
+      this.code = `${Delete.UC_CODE}userDoesNotHavePermission`;
+      this.message = `User does not have permission to delete shopping list.`;
     }
-  },
+  }
 };
 
 const List = {
