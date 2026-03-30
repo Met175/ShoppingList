@@ -1,11 +1,16 @@
 { "itemList": [
   { "id": 1, "name": "Shopping List 1", "active": true, "owner": "James", "members": ["Amelia", "John"],
-  "items":[{ "id": 5, "name": "Pasta", "toBuy": true, "listID": "3"  },
-  { "id": 6, "name": "Tomatoes", "toBuy": true, "listID": "3"  },
-  { "id": 7, "name": "Olive Oil", "toBuy": false, "listID": "4"  },
-  { "id": 8, "name": "Bread", "toBuy": true, "listID": "4"  }]
+  "items":[{ "id": 1, "name": "Pasta", "toBuy": true  },
+  { "id": 2, "name": "Tomatoes", "toBuy": true },
+  { "id": 3, "name": "Olive Oil", "toBuy": false },
+  { "id": 4, "name": "Bread", "toBuy": true }]
   },
-  { "id": 2, "name": "Shopping List 2", "active": true, "owner": "John", "members": ["Amelia", "James"] },
-  { "id": 3, "name": "Shopping List 3", "active": false, "owner": "Amelia", "members": ["Chloe", "James", "John"]},
-  { "id": 4, "name": "Shopping List 4", "active": true, "owner": "James", "members": ["Chloe", "John"] }
+  { "id": 2, "name": "Shopping List 2", "active": true, "owner": "John", "members": ["Amelia", "James"],   "items":[
+    { "id": 1, "name": "Milk", "toBuy": true},
+    { "id": 2, "name": "Eggs", "toBuy": true  },
+    { "id": 3, "name": "Bananas", "toBuy": true  },
+    { "id": 4, "name": "Chicken Breast", "toBuy": true }
+  ] },
+  { "id": 3, "name": "Shopping List 3", "active": false, "owner": "Amelia", "members": ["Chloe", "James", "John"], "items": []},
+  { "id": 4, "name": "Shopping List 4", "active": true, "owner": "James", "members": ["Chloe", "John"], "items": []}
 ]}

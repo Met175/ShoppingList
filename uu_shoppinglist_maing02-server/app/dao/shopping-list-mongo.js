@@ -8,7 +8,6 @@ class ShoppingListMongo extends UuObjectDao {
     await super.createIndex({ awid: 1, title: 1 }, { unique: false });
     await super.createIndex({ awid: 1, ownerUuId: 1 }, { unique: false });
     await super.createIndex({ awid: 1, members: 1 }, { unique: false });
-    await super.createIndex({ awid: 1, active: 1 }, { unique: false });
   }
 
   async create(UuObject) {

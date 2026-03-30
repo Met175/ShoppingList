@@ -1,5 +1,5 @@
 //@@viewOn:imports
-import { Utils, createVisualComponent, useSession, Lsi, useState } from "uu5g05";
+import { Utils, createVisualComponent, useSession, Lsi, useState, useEffect, useRoute } from "uu5g05";
 import Uu5Elements from "uu5g05-elements";
 import Plus4U5Elements from "uu_plus4u5g02-elements";
 import { withRoute } from "uu_plus4u5g02-app";
@@ -7,7 +7,10 @@ import Config from "./config/config.js";
 import RouteBar from "../core/route-bar.js";
 import ShoppingListItemsForm from "../core/shopping-list-items-form.js";
 import ShoppingListMembersForm from "../core/shoppin-list-members-form.js";
-import demoItems from "../../mock/data/demoItems.json";
+import demoItems1 from "../../mock/data/demoItems1.json";
+import demoItems2 from "../../mock/data/demoItems2.json";
+import demoItems3 from "../../mock/data/demoItems3.json";
+import demoItems4 from "../../mock/data/demoItems4.json";
 import demoMembers from "../../mock/data/demoMembers.json";
 import { useUser } from "../core/user.js";
 import ShoppingListItemsPieChart from "../core/item-pie-chart";
@@ -54,10 +57,22 @@ let ShoppingListDetail = createVisualComponent({
   render(props) {
     //@@viewOn:private
     const [members, setMembers] = useState(demoMembers);
-    const [items, setItems] = useState(demoItems);
+    const [items, setItems] = useState([]);
     const [filterItems, setFilterItems] = useState("all");
+    const [route] = useRoute();
     const user = useUser();
+    const demoLists = {
+      1: demoItems1,
+      2: demoItems2,
+      3: demoItems3,
+      4: demoItems4,
+    };
+    const listId = route.params?.id
+    useEffect(() => {
+      setItems(demoLists[listId] || []);
+    }, [listId]);
     //@@viewOff:private
+
 
     //@@viewOn:render
     const attrs = Utils.VisualComponent.getAttrs(props);
@@ -68,7 +83,7 @@ let ShoppingListDetail = createVisualComponent({
           contentMap={{
             sidebar: <><ShoppingListMembersForm members={members} setMembers={setMembers} user={user} />
                     <ShoppingListItemsPieChart items={items} filterItems={filterItems} setFilterItems={setFilterItems} user={user} /></>,
-            content: <ShoppingListItemsForm items={items} setItems={setItems} filterItems={filterItems} user={user} />,
+            content: <ShoppingListItemsForm items={items} setItems={setItems} filterItems={filterItems} user={user} listId={listId}/>,
           }}
           templateAreas={{
             xs: `header, content, sidebar, footer`,

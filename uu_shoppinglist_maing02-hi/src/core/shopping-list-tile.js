@@ -1,5 +1,5 @@
 //@@viewOn:imports
-import { createVisualComponent, Lsi, PropTypes, useState } from "uu5g05";
+import { createVisualComponent, Lsi, PropTypes, useState, useRoute } from "uu5g05";
 import * as Uu5Elements from "uu5g05-elements";
 import Config from "./config/config.js";
 import Uu5TilesElements from "uu5tilesg02-elements";
@@ -36,11 +36,11 @@ const ShoppingListTile = createVisualComponent({
 
   render ( { shoppingList, user, shoppingLists, setShoppingLists, handleArchive } ) {
     const [ deleteDialogOpen, setDeleteDialogOpen ] = useState(false);
-
+    const [route, setRoute] = useRoute();
     const itemList = [
       {
         children : <Lsi lsi={{ cs: "Otevřít", en: "Open" }} />,
-        href: `/detail`,
+        onClick: () => setRoute("detail", { id: shoppingList.id })
       },
       ...(shoppingList.owner === user.name && shoppingList.active
         ? [

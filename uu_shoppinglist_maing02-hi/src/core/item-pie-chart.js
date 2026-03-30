@@ -60,10 +60,13 @@ const ShoppingListItemsPieChart = createVisualComponent({
         },
       },
     ];
+    const hasData = data.some(item => item.count > 0);
     //@@viewOn:render
     return (
       <div>
+        {hasData &&
         <Uu5Charts.PieChart data={data} serieList={serieList} legend={true} className={Css.chart()}/>
+        }
       </div>
 
       //@@viewOff:render

@@ -24,7 +24,8 @@ const ShoppingListProvider = createComponent({
     const dataList = useDataList({
       handlerMap: {
         load: Calls.shoppingListList,
-        update: Calls.shoppingListUpdate
+        update: Calls.shoppingListUpdate,
+        delete: Calls.shoppingListDelete,
         },
       },
     );

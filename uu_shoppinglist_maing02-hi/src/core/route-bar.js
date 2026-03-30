@@ -46,23 +46,19 @@ const RouteBar = createVisualComponent({
     console.log("ROUTE:", route);        // objekt
 
     const itemList = [
-      {
-        children: (
-          <Uu5Elements.Text category="expose" segment="default" type="broad" colorScheme="steel">
-            BuyMate
-          </Uu5Elements.Text>
-        ),
-      },
+
 
       ...(route.uu5Route === "detail"
         ? [
           {
             children: <Lsi lsi={{ cs: "Koupit", en: "To Buy" }} />,
             onClick: () => setFilterItems("toBuy"),
+
           },
           {
             children: <Lsi lsi={{ cs: "Zakoupené", en: "Bought" }} />,
             onClick: () => setFilterItems("bought"),
+
           },
           {
             children: <Lsi lsi={{ cs: "Vše", en: "All" }} />,
@@ -74,10 +70,12 @@ const RouteBar = createVisualComponent({
           {
             children: <Lsi lsi={{ cs: "Aktivní", en: "Active" }} />,
             onClick: () => setFilterLists("active"),
+
           },
           {
             children: <Lsi lsi={{ cs: "Archivované", en: "Archived" }} />,
             onClick: () => setFilterLists("archived"),
+
           },
         ])
     ];
@@ -108,14 +106,20 @@ const RouteBar = createVisualComponent({
 
     //@@viewOn:render
     return (
-        <Plus4U5App.PositionBar
+       <Plus4U5App.PositionBar
           actionList={actionList}
           view="short"
 
           colorScheme="pink"
 
-        >
-          <Uu5Elements.ActionGroup itemList={itemList} displayType="button" />
+        ><Uu5Elements.Grid
+
+       templateColumns="repeat(2, 80px)" columnGap={1}>
+         <Uu5Elements.Text category="expose" segment="default" type="broad" colorScheme="steel">
+          BuyMate
+        </Uu5Elements.Text>
+          <Uu5Elements.ActionGroup itemList={itemList} />
+       </Uu5Elements.Grid>
         </Plus4U5App.PositionBar>
       //@@viewOff:render
     );

@@ -8,7 +8,7 @@ import RouteBar from "../core/route-bar.js";
 import ShoppingListItemsForm from "../core/shopping-list-items-form.js";
 import ShoppingListMembersForm from "../core/shoppin-list-members-form.js";
 import ShoppingListList from "../core/shopping-list-list.js";
-import demoItems from "../../mock/data/demoItems.json";
+import demoItems from "../../mock/data/demoItems1.json";
 import demoMembers from "../../mock/data/demoMembers.json";
 import demoLists from "../../mock/data/demoLists.json";
 import { useUser } from "../core/user.js";
@@ -65,38 +65,34 @@ let ShoppingList = createVisualComponent({
     //@@viewOn:render
     const attrs = Utils.VisualComponent.getAttrs(props);
     return (
-      <ShoppingListProvider>
-        {({ dataList }) => (
-          <div {...attrs}>
-            <RouteBar
-              shoppingLists={shoppingLists}
-              setShoppingLists={setShoppingLists}
-              user={user}
-              setFilterLists={setFilterLists}
-            />
-            <Uu5Elements.GridTemplate
-              contentMap={{
-                content: <ShoppingListList dataList={dataList} filterLists={filterLists} user={user} />,
-              }}
-              templateAreas={{
-                xs: `header, content, footer`,
-                m: `
+      <div {...attrs}>
+        <RouteBar
+          shoppingLists={shoppingLists}
+          setShoppingLists={setShoppingLists}
+          user={user}
+          setFilterLists={setFilterLists}
+        />
+        <Uu5Elements.GridTemplate
+          contentMap={{
+            content: <ShoppingListList shoppingLists={shoppingLists} setShoppingLists={setShoppingLists} filterLists={filterLists} user={user}/>,
+          }}
+          templateAreas={{
+            xs: `header, content, footer`,
+            m: `
         header header header header,
         content content content content,
         footer footer footer footer
       `,
-              }}
-              templateColumns={{ xs: "100%", m: "repeat(4, 1fr)" }}
-              rowGap={12}
-              columnGap={20}
-              className={Css.layout()}
-            />
-          </div>
-        )}
-      </ShoppingListProvider>
-    );
+          }}
+          templateColumns={{ xs: "100%", m: "repeat(4, 1fr)" }}
+          rowGap={12}
+          columnGap={20}
+          className={Css.layout()}
+        />
+      </div>
+    )
+  }
     //@@viewOff:render
-  },
 });
 
 ShoppingList = withRoute(ShoppingList, { authenticated: false });

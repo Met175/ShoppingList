@@ -34,7 +34,8 @@ const ShoppingListList = createVisualComponent({
   defaultProps: {},
   //@@viewOff:defaultProps
 
-  render({ dataList, user, filterLists }) {
+  render({ shoppingLists, user, filterLists, setShoppingLists }) {
+    /*
     console.log("ShoppingListList render", dataList);
     const { data, state, errorData } = dataList;
     if (state === "pending" || state === "pendingNoData") {
@@ -44,11 +45,16 @@ const ShoppingListList = createVisualComponent({
     if (state === "error") {
       return <div>Error loading shopping lists</div>;
     }
-    const shoppingLists = data ?? [];
+
+
+    const lists = shoppingLists ?? [];
     console.log("shoppingLists:", shoppingLists);
-    const filteredData = shoppingLists
+    const filteredData = lists
       .map((list) => list.data)
+      console.log("7777777", filteredData)
       .filter((list) => {
+     */
+    const filteredData = shoppingLists.filter((list) => {
         // filter active/archived
         if (filterLists === "active" && !list.active) return false;
         if (filterLists === "archived" && list.active) return false;
@@ -62,6 +68,7 @@ const ShoppingListList = createVisualComponent({
     console.log("filteredData:", filteredData);
     console.log(user.name);
     console.log(shoppingLists.owner);
+    /*
     const handleArchive = async (shoppingListId) => {
       try {
         const listToUpdate = dataList.data.find((list) => list.data.id === shoppingListId);
@@ -79,6 +86,17 @@ const ShoppingListList = createVisualComponent({
         console.error("Failed to archive/unarchive shopping list:", error);
       }
     };
+
+     */
+    const handleArchive = (shoppingListId) => {
+      setShoppingLists(
+        shoppingLists.map((shoppingList) =>
+          shoppingList.id === shoppingListId
+            ? { ...shoppingList, active: !shoppingList.active }
+            : shoppingList
+        )
+      );
+    };
     //@@viewOn:private
 
     //@@viewOff:private
@@ -88,13 +106,13 @@ const ShoppingListList = createVisualComponent({
       <div>
         <Uu5Tiles.ControllerProvider data={filteredData}>
           <Uu5TilesElements.Grid tileMinWidth={100} tileMaxWidth={600}>
-            {(tile) => <ShoppingListTile shoppingList={tile.data} user={user} handleArchive={handleArchive} />}
+            {(tile) => <ShoppingListTile shoppingLists={shoppingLists} setShoppingLists={setShoppingLists} shoppingList={tile.data} user={user} handleArchive={handleArchive}/>}
           </Uu5TilesElements.Grid>
         </Uu5Tiles.ControllerProvider>
       </div>
 
       //@@viewOff:render
-    );
+    )
   },
 });
 

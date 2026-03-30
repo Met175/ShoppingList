@@ -1,5 +1,5 @@
 //@@viewOn:imports
-import { createVisualComponent, Lsi, useRoute, useState } from "uu5g05";
+import { createVisualComponent, Lsi, useRoute, useState, useRouter } from "uu5g05";
 import Plus4U5App from "uu_plus4u5g02-app";
 import Uu5Elements from "uu5g05-elements";
 import Uu5Forms from "uu5g05-forms";
@@ -31,7 +31,7 @@ const ShoppingListItemsForm = createVisualComponent({
   defaultProps: {},
   //@@viewOff:defaultProps
 
-  render({ items, setItems, filterItems, user }) {
+  render({ items, setItems, filterItems, user, listId }) {
     //@@viewOn:private
     const filteredItems = items.filter((item) => {
       if (filterItems === "toBuy") return item.toBuy === true;
@@ -39,7 +39,7 @@ const ShoppingListItemsForm = createVisualComponent({
       return true; // all
     });
 
-    const [listName, setListName] = useState("Shopping List #1");
+    const [listName, setListName] = useState(`Shopping List #${listId}`);
 
     const handleCheckboxChange = (itemId) => {
       setItems(items.map((item) => (item.id === itemId ? { ...item, toBuy: !item.toBuy } : item)));
